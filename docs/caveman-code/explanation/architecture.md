@@ -4,31 +4,13 @@ title: How it Works
 sidebar_position: 1
 ---
 
-<div align="center">
-
 # 🪨 Caveman Code
 
 **The terminal coding agent that talks like a caveman — and burns half the tokens doing it.**
 
 Same model. Same task. **~2× fewer tokens than Codex.** 20+ providers · plan mode · autopilot loop · MIT.
 
-<p>
-  <a href="https://github.com/JuliusBrussee/caveman-code/stargazers"><img src="https://img.shields.io/github/stars/JuliusBrussee/caveman-code?color=d97757&style=flat-square" alt="Stars" /></a>
-  <a href="https://www.npmjs.com/package/@juliusbrussee/caveman-code"><img src="https://img.shields.io/npm/v/%40juliusbrussee%2Fcaveman-code?color=2ea043&label=npm&style=flat-square" alt="npm version" /></a>
-  <a href="https://www.npmjs.com/package/@juliusbrussee/caveman-code"><img src="https://img.shields.io/npm/dm/%40juliusbrussee%2Fcaveman-code?color=2ea043&label=downloads&style=flat-square" alt="npm downloads" /></a>
-  <a href="https://github.com/JuliusBrussee/caveman-code/blob/main/LICENSE"><img src="https://img.shields.io/badge/license-MIT-2ea043?style=flat-square" alt="MIT License" /></a>
-</p>
-
-<a href="#install">Install</a> ·
-<a href="#-the-trick">The Trick</a> ·
-<a href="#how-it-saves-tokens">How It Saves Tokens</a> ·
-<a href="#why-caveman-code">Why Caveman</a> ·
-<a href="#features">Features</a> ·
-<a href="#sdk">SDK</a>
-
-<img src="vhs/install.gif" width="760" alt="caveman install + first prompt — 30 seconds" />
-
-</div>
+<img src="vhs/install.gif" alt="caveman install + first prompt — 30 seconds" />
 
 ---
 
@@ -57,10 +39,13 @@ That is the entire product. Everything below is the coding agent it ships inside
 | **🪨 caveman** | `████████████▌` **524k** | 14 / 25 |
 | codex | `████████████████████████` 1,010k | 15 / 25 |
 
-> **1.93× fewer tokens than Codex CLI on identical tasks.**
-> Same `gpt-5.5` model. Same `xhigh` reasoning. Pass rate within one task.
->
-> No marketing-deck baselines. Each tool spawned as a real child process. Each task verified by a task-specific `verify.sh`. Raw CSV + per-task logs published.
+:::info MicroBench Results
+
+**1.93× fewer tokens than Codex CLI on identical tasks.**
+Same `gpt-5.5` model. Same `xhigh` reasoning. Pass rate within one task.
+
+No marketing-deck baselines. Each tool spawned as a real child process. Each task verified by a task-specific `verify.sh`. Raw CSV + per-task logs published.
+:::
 
 ```bash
 npx tsx research/evals/run-honest-bench.ts --tools caveman,codex   # reproduce in one command
@@ -160,10 +145,4 @@ Missing credit? [Open an issue](https://github.com/JuliusBrussee/caveman-code/is
 
 MIT © [Julius Brussee](https://github.com/JuliusBrussee). Forked from [pi-code](https://github.com/badlogic/pi-code) (MIT © Mario Zechner).
 
-<div align="center">
-
-[Issues](https://github.com/JuliusBrussee/caveman-code/issues) · [Releases](https://github.com/JuliusBrussee/caveman-code/releases) · Changelog · Docs
-
-<sub>Caveman no waste token. Caveman ship.</sub>
-
-</div>
+*(See [Changelog](https://github.com/JuliusBrussee/caveman-code/blob/main/CHANGELOG.md) for release history).*

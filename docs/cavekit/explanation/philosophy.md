@@ -4,16 +4,12 @@ title: Philosophy & Ecosystem
 sidebar_position: 1
 ---
 
-<h1 align="center">cavekit</h1>
+# Cavekit Philosophy
 
-<p align="center">
-  <strong>compressed spec-driven development for claude code</strong><br/>
-  <sub>one file · one loop · zero sub-agents</sub>
-</p>
+**Compressed spec-driven development for Claude Code**
+*One file · one loop · zero sub-agents*
 
----
-
-## what this is
+## What this is
 
 Plan-then-execute forgets. SDD remembers — but most SDD frameworks bury
 that value under agent swarms, dashboards, and ceremony that costs more
@@ -60,12 +56,8 @@ Cavekit is one rock in the caveman family:
 
 ## philosophy
 
-> The spec is the only artifact that earns its tokens. Everything else
-> that costs tokens must either save more tokens later, or the user's
-> attention, or it gets cut.
+:::tip Core Principle
+The spec is the only artifact that earns its tokens. Everything else that costs tokens must either save more tokens later, or the user's attention, or it gets cut.
+:::
 
-See `CHANGELOG.md` for the full v3 → v4 break.
-
-## license
-
-MIT.
+See [Changelog](/docs/cavekit/reference/changelog) for the full v3 → v4 break.

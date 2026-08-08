@@ -4,32 +4,48 @@ title: Installation
 sidebar_position: 1
 ---
 
-## install
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-One line, via the `skills` CLI:
+Choose one of the following methods to install Cavekit:
 
-```bash
-npx skills add JuliusBrussee/cavekit
-```
+<Tabs>
+  <TabItem value="cli" label="Skills CLI" default>
+    One line, via the `skills` CLI:
 
-Installs nine skills into `~/.claude/skills/`: `spec`, `build`, `check`
-(the loop), `grill`, `research`, `review`, `deepen` (reach-for), plus
-`caveman` and `backprop` (the utilities). Claude activates each when its
-trigger context matches — e.g. "write a spec for…" invokes `spec`, a fuzzy
-idea invokes `grill`, a risky change before build invokes `review`. Claude
-Code picks them up on next launch.
+    ```bash
+    npx skills add JuliusBrussee/cavekit
+    ```
+  </TabItem>
+  <TabItem value="marketplace" label="Marketplace">
+    Via the Claude Code marketplace (also adds slash commands like `/ck:spec`, `/ck:build`):
 
-Or via the Claude Code marketplace (also adds the `/ck:spec`, `/ck:build`,
-`/ck:check`, `/ck:grill`, `/ck:research`, `/ck:review`, `/ck:deepen` slash
-commands):
+    ```bash
+    /plugin marketplace add juliusbrussee/cavekit
+    /plugin install ck@cavekit
+    ```
+  </TabItem>
+  <TabItem value="git" label="Git Clone">
+    Clone directly into your plugins directory:
 
-```bash
-/plugin marketplace add juliusbrussee/cavekit
-/plugin install ck@cavekit
-```
+    ```bash
+    git clone https://github.com/juliusbrussee/cavekit.git ~/.claude/plugins/cavekit
+    ```
+  </TabItem>
+</Tabs>
 
-Or clone directly:
+## What gets installed?
 
-```bash
-git clone https://github.com/juliusbrussee/cavekit.git ~/.claude/plugins/cavekit
-```
+Cavekit installs nine skills into `~/.claude/skills/`:
+
+- `spec`
+- `build`
+- `check` (the loop)
+- `grill`
+- `research`
+- `review`
+- `deepen` (reach-for)
+- `caveman` (utility)
+- `backprop` (utility)
+
+Claude activates each when its trigger context matches — e.g., "write a spec for…" invokes `spec`, a fuzzy idea invokes `grill`, a risky change before build invokes `review`. Claude Code picks them up on next launch.

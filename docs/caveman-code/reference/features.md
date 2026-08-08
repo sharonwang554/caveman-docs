@@ -13,13 +13,7 @@ sidebar_position: 3
 | 👥 | **Subagents** — up to 7 parallel, worktree-isolated. Frontmatter agents at `.cave/agents/*.md` (Claude Code superset). Five ship by default. | `Task` tool |
 | 🪞 | **Architect / editor split** — slow model plans, fast model executes. ~3–5× cheaper than a single-model run. | `--architect` · `--editor` |
 
-Latest release: plan mode · goal loop · native memory tools · subagent registry. Full history → CHANGELOG.md.
-
-
-
-**<strong>More</strong> — sessions · providers · MCP · memory · recipes · daemon · CLI flags**
-
-
+Latest release: plan mode · goal loop · native memory tools · subagent registry. Full history → [Changelog](https://github.com/JuliusBrussee/caveman-code/blob/main/CHANGELOG.md).
 ### 🌳 Sessions, branching, replay
 JSONL sessions in `~/.cave/agent/sessions/`, organized by working directory. Branching never overwrites history.
 

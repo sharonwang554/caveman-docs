@@ -1,3 +1,9 @@
+---
+id: getting-started
+title: Getting Started
+sidebar_position: 1
+---
+
 # Getting Started with Caveman
 
 Caveman is a skill/plugin for Claude Code, Codex, Gemini, Cursor, Windsurf, Cline, Copilot, and 30+ other agents. Install once. Agent drops the filler and answers in tight caveman-speak, keeping code, commands, and errors byte-for-byte exact. You save output tokens on every reply, forever.
@@ -11,18 +17,46 @@ import TabItem from '@theme/TabItem';
 
 <Tabs>
   <TabItem value="mac" label="macOS / Linux / WSL" default>
-    ```bash
-    curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash
-    ```
+  
+  ```bash
+  curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash
+  ```
+
   </TabItem>
   <TabItem value="win" label="Windows (PowerShell)">
-    ```powershell
-    irm https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.ps1 | iex
-    ```
+  
+  ```powershell
+  irm https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.ps1 | iex
+  ```
+
+  </TabItem>
+  <TabItem value="manual" label="Manual Install">
+  
+  ```bash
+  # Clone the repo
+  git clone https://github.com/JuliusBrussee/caveman.git
+  cd caveman
+
+  # Preview every command the installer would run
+  node cli/install.js --dry-run --all
+
+  # Inspect the agent matrix
+  node cli/install.js --list
+
+  # Install for everything detected
+  node cli/install.js --all
+  ```
+  
   </TabItem>
 </Tabs>
 
-It takes ~30 seconds, needs Node >=18, skips agents you don't have, and is safe to re-run.
+> Piping a script straight into a shell runs it sight-unseen. If you'd rather read it first, download then run: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh -o install.sh` (review it) `&& bash install.sh`.
+
+What it does:
+- Auto-detects every supported agent installed on your machine (Claude Code, Cursor, Codex, etc.).
+- For each one, runs that agent's native install path.
+- Wires Claude Code hooks and statusline badge on top.
+- Skips anything you don't have. Safe to re-run. ~30 seconds end-to-end.
 
 ## Enabling Caveman
 

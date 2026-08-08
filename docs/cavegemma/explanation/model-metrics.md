@@ -4,33 +4,7 @@ title: Model Metrics
 sidebar_position: 1
 ---
 
-<p align="center">
-  <img src="https://em-content.zobj.net/source/apple/391/rock_1faa8.png" width="120" />
-</p>
-
-<h1 align="center">cavegemma</h1>
-
-<p align="center">
-  <strong>why use many token when few do trick — now baked in weights</strong>
-</p>
-
-<p align="center">
-  <a href="https://huggingface.co/JBrussee/gemma-4-31B-caveman"><img src="https://img.shields.io/badge/🤗%20Model-Gemma%204%2031B%20Caveman-yellow" alt="HF Model" /></a>
-  <a href="https://huggingface.co/JBrussee/gemma-4-31B-caveman-lora"><img src="https://img.shields.io/badge/🤗%20Adapter-LoRA%20534MB-blue" alt="HF LoRA" /></a>
-  <a href="https://github.com/JuliusBrussee/caveman"><img src="https://img.shields.io/badge/style-caveman-orange" alt="Style" /></a>
-  <a href="LICENSE"><img src="https://img.shields.io/badge/license-MIT-green" alt="License" /></a>
-</p>
-
-<p align="center">
-  <a href="#the-number">The number</a> •
-  <a href="#see-it">See it</a> •
-  <a href="#quick-start">Quick start</a> •
-  <a href="#eval-results">Eval</a> •
-  <a href="#where-it-still-loses">Where it loses</a> •
-  <a href="#reproduce">Reproduce</a>
-</p>
-
----
+# Cavegemma Model Metrics
 
 Gemma 4 31B, fine-tuned until it speaks [caveman](https://github.com/JuliusBrussee/caveman) natively. No skill file. No system prompt. No `/caveman` toggle. You ask a question, it answers in a quarter fewer tokens, and the code blocks come back byte-exact.
 
@@ -167,51 +141,3 @@ Written down instead of buried, because the fix is obvious and somebody should t
 **Workflow eval is a smoke test, not a scoreboard.** The ten open-ended prompts in `workflow_prompts.jsonl` have no reference answer, so `semantic_sim` there compares the answer against the *question* and `code_fence_match` only checks that input fences survived. Treat those numbers as evidence nothing exploded.
 
 **Multimodal is untouched.** Gemma 4 does vision and audio. This fine-tune only ever saw text and only ever updated the language head. The other paths should still work. Nobody has checked.
-
-## Caveman ecosystem
-
-Four rocks. One philosophy: **model do more with less.**
-
-| Repo | What |
-|---|---|
-| [**caveman**](https://github.com/JuliusBrussee/caveman) | Output compression skill, 73k★, *why use many token when few do trick* |
-| [**cavemem**](https://github.com/JuliusBrussee/cavemem) | Cross-agent memory, *why agent forget when agent can remember* |
-| [**cavekit**](https://github.com/JuliusBrussee/cavekit) | Spec-driven build loop, *why agent guess when agent can know* |
-| **cavegemma** *(you here)* | Caveman welded into weights, *why prompt every session when weights remember* |
-
-The skill compresses any model at runtime and costs you a prompt. This repo puts the same ruleset in the weights, so terseness survives across hosts, agents, and setups that never let you touch the system prompt.
-
-## License
-
-Code here is **MIT**. The adapter and merged model inherit the [Gemma terms](https://ai.google.dev/gemma/terms), Apache 2.0 plus the Prohibited Use Policy. Style ruleset and seed pairs come from [`JuliusBrussee/caveman`](https://github.com/JuliusBrussee/caveman), MIT.
-
-## Citing
-
-```bibtex
-@misc{brussee2026cavemanGemma,
-  author = {Julius Brussee},
-  title  = {Caveman-mode Gemma 4 31B},
-  year   = {2026},
-  url    = {https://huggingface.co/JBrussee/gemma-4-31B-caveman}
-}
-```
-
-## Star this repo
-
-Star cost zero. Help small mouth find big audience. ⭐
-
-[![Star History Chart](https://api.star-history.com/svg?repos=JuliusBrussee/cavegemma&type=Date)](https://star-history.com/#JuliusBrussee/cavegemma&Date)
-
-## Also by Julius Brussee
-
-- **[caveman](https://github.com/JuliusBrussee/caveman)** — the Claude Code skill this fine-tune was built from
-- **[Revu](https://github.com/JuliusBrussee/revu-swift)** — local-first macOS study app with FSRS spaced repetition, [revu.cards](https://revu.cards)
-
-## See also
-
-- Style source-of-truth: [JuliusBrussee/caveman](https://github.com/JuliusBrussee/caveman)
-- Agent notes and the twelve traps: `AGENTS.md`
-
----
-
-<p align="center"><em>why use many token when few do trick</em> 🪨</p>

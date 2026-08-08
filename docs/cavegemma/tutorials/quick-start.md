@@ -6,41 +6,51 @@ sidebar_position: 1
 
 ## Quick start
 
-### Merged model, no extra setup
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
-```python
-from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+<Tabs>
+  <TabItem value="merged" label="Merged Model" default>
 
-tok = AutoTokenizer.from_pretrained("JBrussee/gemma-4-31B-caveman")
-model = AutoModelForCausalLM.from_pretrained(
-    "JBrussee/gemma-4-31B-caveman",
-    torch_dtype=torch.bfloat16,
-    device_map="auto",
-)
+  ```python
+  from transformers import AutoModelForCausalLM, AutoTokenizer
+  import torch
 
-msgs = [{"role": "user", "content": "Why does my React component re-render every time the parent updates?"}]
-inputs = tok.apply_chat_template(msgs, return_tensors="pt", add_generation_prompt=True).to(model.device)
-out = model.generate(inputs, max_new_tokens=300, do_sample=False)
-print(tok.decode(out[0, inputs.shape[1]:], skip_special_tokens=True))
-```
+  tok = AutoTokenizer.from_pretrained("JBrussee/gemma-4-31B-caveman")
+  model = AutoModelForCausalLM.from_pretrained(
+      "JBrussee/gemma-4-31B-caveman",
+      torch_dtype=torch.bfloat16,
+      device_map="auto",
+  )
 
-### LoRA adapter on base, lighter download
+  msgs = [{"role": "user", "content": "Why does my React component re-render every time the parent updates?"}]
+  inputs = tok.apply_chat_template(msgs, return_tensors="pt", add_generation_prompt=True).to(model.device)
+  out = model.generate(inputs, max_new_tokens=300, do_sample=False)
+  print(tok.decode(out[0, inputs.shape[1]:], skip_special_tokens=True))
+  ```
 
-```python
-from peft import PeftModel
-from transformers import AutoModelForCausalLM, AutoTokenizer
-import torch
+  </TabItem>
+  <TabItem value="lora" label="LoRA Adapter">
 
-base = AutoModelForCausalLM.from_pretrained(
-    "google/gemma-4-31B-it",
-    torch_dtype=torch.bfloat16,
-    device_map="auto",
-)
-tok = AutoTokenizer.from_pretrained("google/gemma-4-31B-it")
-model = PeftModel.from_pretrained(base, "JBrussee/gemma-4-31B-caveman-lora")
-```
+  ```python
+  from peft import PeftModel
+  from transformers import AutoModelForCausalLM, AutoTokenizer
+  import torch
+
+  base = AutoModelForCausalLM.from_pretrained(
+      "google/gemma-4-31B-it",
+      torch_dtype=torch.bfloat16,
+      device_map="auto",
+  )
+  tok = AutoTokenizer.from_pretrained("google/gemma-4-31B-it")
+  model = PeftModel.from_pretrained(base, "JBrussee/gemma-4-31B-caveman-lora")
+  ```
+
+  </TabItem>
+</Tabs>
 
 There is no step three. Ask question, model talk caveman.
 
-Gemma 4 hands you a `Gemma4Processor` rather than a tokenizer, so if you wander off the beaten path, unwrap it first: `tokenizer = getattr(tokenizer, "tokenizer", tokenizer)`. Eleven more traps like that one are written down in `AGENTS.md`, each of which cost real hours.
+:::tip Watch out
+Gemma 4 hands you a `Gemma4Processor` rather than a tokenizer, so if you wander off the beaten path, unwrap it first: `tokenizer = getattr(tokenizer, "tokenizer", tokenizer)`. Eleven more traps like that one are written down in our [Agents Reference](/docs/cavegemma/reference/agents), each of which cost real hours.
+:::

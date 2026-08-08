@@ -6,13 +6,32 @@ sidebar_position: 1
 
 ## Install
 
-```sh
-npm install -g cavemem
-cavemem install                    # Claude Code
-cavemem install --ide cursor       # cursor | gemini-cli | opencode | codex | copilot | augment | antigravity | bob
-cavemem status                     # see wiring + embedding backfill
-cavemem viewer                     # open http://127.0.0.1:37777
-```
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
+
+<Tabs>
+  <TabItem value="claude" label="Claude Code" default>
+
+  ```sh
+  npm install -g cavemem
+  cavemem install
+  cavemem status
+  cavemem viewer
+  ```
+
+  </TabItem>
+  <TabItem value="other" label="Other IDEs">
+
+  ```sh
+  npm install -g cavemem
+  # Replace cursor with: gemini-cli | opencode | codex | copilot | augment | antigravity | bob
+  cavemem install --ide cursor
+  cavemem status
+  cavemem viewer
+  ```
+
+  </TabItem>
+</Tabs>
 
 No daemon to start. Hooks write synchronously. A local worker auto-spawns in the background on the first hook to build embeddings and serve the viewer; it self-exits when idle (set `embedding.idleShutdownMs` to `0` to keep it running until killed). Disable auto-spawn — and with it the HTTP listener — with `cavemem config set embedding.autoStart false`.
 

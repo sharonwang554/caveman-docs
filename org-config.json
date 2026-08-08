@@ -1,0 +1,9 @@
+{
+  "title": "Enterprise Portal",
+  "tagline": "The best documentation for your product",
+  "url": "https://docs.enterprise.com",
+  "organizationName": "AcmeCorp",
+  "projectName": "docs-portal",
+  "githubRepo": "https://github.com/AcmeCorp/docs-portal",
+  "copyright": "AcmeCorp, Inc."
+}

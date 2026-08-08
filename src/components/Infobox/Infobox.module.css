@@ -1,0 +1,50 @@
+.infobox {
+  --infobox-accent: #999;
+  --infobox-bg: #f9f9f9;
+  --infobox-text: #333;
+  
+  margin: 1rem 0;
+  padding: 1rem;
+  background-color: var(--infobox-bg);
+  border-left: 4px solid var(--infobox-accent);
+  border-radius: var(--ifm-border-radius, 8px);
+  color: var(--infobox-text);
+}
+
+[data-theme='dark'] .infobox {
+  --infobox-bg: rgba(255, 255, 255, 0.05);
+  --infobox-text: #e3e3e3;
+}
+
+.tip {
+  --infobox-accent: #10b981; /* green */
+}
+
+.warning {
+  --infobox-accent: #f59e0b; /* amber */
+}
+
+.security {
+  --infobox-accent: #ef4444; /* red */
+}
+
+.header {
+  display: flex;
+  align-items: center;
+  margin-bottom: 0.5rem;
+  gap: 0.5rem;
+  color: var(--infobox-accent);
+}
+
+.icon {
+  display: flex;
+  align-items: center;
+}
+
+.title {
+  font-size: 1.1em;
+}
+
+.content {
+  margin-left: 0;
+}

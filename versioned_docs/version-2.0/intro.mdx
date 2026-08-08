@@ -1,0 +1,37 @@
+---
+sidebar_position: 1
+---
+
+import Infobox from '@site/src/components/Infobox'
+import CodeTabs from '@site/src/components/CodeTabs'
+
+# Welcome
+
+This is the Enterprise SaaS Docusaurus template, featuring custom components, API reference, multi-versioning, and AI integrations.
+
+## Components
+
+### Infoboxes
+
+<Infobox variant="tip">
+  This is a helpful tip.
+</Infobox>
+
+<Infobox variant="warning">
+  This is a warning to be careful.
+</Infobox>
+
+<Infobox variant="security">
+  This is a critical security notice.
+</Infobox>
+
+### Code snippets with global tabs
+
+<CodeTabs snippets={[
+  { language: 'js', label: 'JavaScript', code: 'console.log("Hello Enterprise")' },
+  { language: 'python', label: 'Python', code: 'print("Hello Enterprise")' },
+]} />
+
+## Automated agents
+
+This template generates an `llms.txt` file automatically, making your documentation readable by modern agents.

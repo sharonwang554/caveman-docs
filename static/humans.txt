@@ -1,0 +1,7 @@
+/* TEAM */
+Author: Julius Brussee
+Contributor: Sharon Wang (docusaurus-template)
+
+/* SITE */
+Last update: 2026/08
+Framework: Docusaurus

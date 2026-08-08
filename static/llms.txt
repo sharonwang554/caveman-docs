@@ -1,0 +1,18 @@
+# Caveman Ecosystem Documentation
+
+This portal contains documentation for the Caveman ecosystem, including Caveman, CaveGemma, Caveman Code, Cavemem, and Cavekit.
+
+Caveman is a skill/plugin for coding agents (Claude Code, Codex, Gemini, Cursor, etc.) that makes the agent talk like a caveman to save output tokens (up to 65% on prose) while maintaining exact technical accuracy.
+
+## Caveman Levels
+- lite
+- full (default)
+- ultra
+- wenyan
+
+## Caveman Commands
+- /caveman <level>
+- /caveman-commit
+- /caveman-review
+- /caveman-stats
+- /caveman-compress <file>

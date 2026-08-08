@@ -1,0 +1,46 @@
+import type {ReactNode} from 'react';
+import clsx from 'clsx';
+import Link from '@docusaurus/Link';
+import useDocusaurusContext from '@docusaurus/useDocusaurusContext';
+import Layout from '@theme/Layout';
+import Heading from '@theme/Heading';
+
+import styles from './index.module.css';
+
+function HomepageHeader() {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <header className={clsx('hero hero--primary', styles.heroBanner)}>
+      <div className="container">
+        <Heading as="h1" className="hero__title">
+          {siteConfig.title}
+        </Heading>
+        <p className="hero__subtitle">{siteConfig.tagline}</p>
+        <div className={styles.buttons}>
+          <Link
+            className="button button--secondary button--lg"
+            to="/docs/2.0/intro">
+            Get Started ⏱️
+          </Link>
+        </div>
+      </div>
+    </header>
+  );
+}
+
+export default function Home(): ReactNode {
+  const {siteConfig} = useDocusaurusContext();
+  return (
+    <Layout
+      title={`Welcome to ${siteConfig.title}`}
+      description={siteConfig.tagline}>
+      <HomepageHeader />
+      <main style={{display: 'flex', justifyContent: 'center', padding: '4rem 0'}}>
+        <div className="container" style={{textAlign: 'center'}}>
+          <h2>Ready to build something amazing?</h2>
+          <p>This is your enterprise documentation portal.</p>
+        </div>
+      </main>
+    </Layout>
+  );
+}

@@ -4,8 +4,6 @@ title: Quick Start
 sidebar_position: 1
 ---
 
-## Quick start
-
 import Tabs from '@theme/Tabs';
 import TabItem from '@theme/TabItem';
 

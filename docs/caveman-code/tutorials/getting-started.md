@@ -4,8 +4,6 @@ title: Getting Started
 sidebar_position: 1
 ---
 
-# Install
-
 npm is the primary install path. Native binaries via Homebrew / Docker / direct download are also available.
 
 import Tabs from '@theme/Tabs';

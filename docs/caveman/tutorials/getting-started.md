@@ -4,8 +4,6 @@ title: Getting Started
 sidebar_position: 1
 ---
 
-# Getting Started with Caveman
-
 Caveman is a skill/plugin for Claude Code, Codex, Gemini, Cursor, Windsurf, Cline, Copilot, and 30+ other agents. Install once. Agent drops the filler and answers in tight caveman-speak, keeping code, commands, and errors byte-for-byte exact. You save output tokens on every reply, forever.
 
 import Tabs from '@theme/Tabs';

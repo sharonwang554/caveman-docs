@@ -34,7 +34,7 @@ const config: Config = {
   // may want to replace "en" with "zh-Hans".
   i18n: {
     defaultLocale: 'en',
-    locales: ['en', 'fr', 'ja', 'zh-Hans', 'zh-Hant', 'es'],
+    locales: ['en'],
   },
 
   presets: [
@@ -43,41 +43,11 @@ const config: Config = {
       {
         docs: {
           sidebarPath: './sidebars.ts',
-          docItemComponent: "@theme/ApiItem", // Required for docusaurus-theme-openapi-docs
-          showLastUpdateTime: true,
-          lastVersion: '2.0',
-          versions: {
-            current: {
-              label: 'Next',
-              path: 'next',
-            },
-            '2.0': {
-              label: 'v2.0 (Latest)',
-              path: '2.0',
-            },
-            '1.0': {
-              label: 'v1.0 (Legacy)',
-              path: '1.0',
-            },
-          },
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: `${orgConfig.githubRepo}/tree/main/`,
         },
-        blog: {
-          showReadingTime: true,
-          feedOptions: {
-            type: ['rss', 'atom'],
-            xslt: true,
-          },
-          // Please change this to your repo.
-          // Remove this to remove the "edit this page" links.
-          editUrl: `${orgConfig.githubRepo}/tree/main/`,
-          // Useful options to enforce blogging best practices
-          onInlineTags: 'warn',
-          onInlineAuthors: 'warn',
-          onUntruncatedBlogPosts: 'warn',
-        },
+        blog: false,
         theme: {
           customCss: './src/css/custom.css',
         },
@@ -85,27 +55,7 @@ const config: Config = {
     ],
   ],
 
-  themes: ['docusaurus-theme-openapi-docs'],
-
-  plugins: [
-    [
-      'docusaurus-plugin-openapi-docs',
-      {
-        id: 'api',
-        docsPluginId: 'classic',
-        config: {
-          acme: {
-            specPath: 'openapi/acme-api.yaml',
-            outputDir: 'docs/api',
-            sidebarOptions: {
-              groupPathsBy: 'tag',
-              categoryLinkSource: 'tag',
-            },
-          } satisfies OpenApiPlugin.Options,
-        },
-      },
-    ],
-  ],
+  plugins: [],
 
   themeConfig: {
     // Replace with your project's social card
@@ -124,23 +74,9 @@ const config: Config = {
           type: 'docSidebar',
           sidebarId: 'tutorialSidebar',
           position: 'left',
-          label: 'Tutorial',
+          label: 'Docs',
         },
-        {
-          type: 'docSidebar',
-          sidebarId: 'apiSidebar',
-          position: 'left',
-          label: 'API',
-        },
-        {to: '/blog', label: 'Blog', position: 'left'},
-        {
-          type: 'docsVersionDropdown',
-          position: 'right',
-        },
-        {
-          type: 'localeDropdown',
-          position: 'right',
-        },
+
         {
           href: orgConfig.githubRepo,
           label: 'GitHub',
@@ -155,35 +91,15 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Tutorial',
-              to: '/docs/2.0/intro',
+              label: 'Getting Started',
+              to: '/docs/caveman/tutorials/getting-started',
             },
           ],
         },
-        {
-          title: 'Community',
-          items: [
-            {
-              label: 'Stack Overflow',
-              href: 'https://stackoverflow.com/questions/tagged/docusaurus',
-            },
-            {
-              label: 'Discord',
-              href: 'https://discordapp.com/invite/docusaurus',
-            },
-            {
-              label: 'X',
-              href: 'https://x.com/docusaurus',
-            },
-          ],
-        },
+
         {
           title: 'More',
           items: [
-            {
-              label: 'Blog',
-              to: '/blog',
-            },
             {
               label: 'GitHub',
               href: orgConfig.githubRepo,

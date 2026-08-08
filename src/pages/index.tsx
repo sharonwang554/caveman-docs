@@ -19,8 +19,8 @@ function HomepageHeader() {
         <div className={styles.buttons}>
           <Link
             className="button button--secondary button--lg"
-            to="/docs/2.0/intro">
-            Get Started ⏱️
+            to="/docs/caveman/tutorials/getting-started">
+            Get Started ⛏️
           </Link>
         </div>
       </div>
@@ -37,8 +37,8 @@ export default function Home(): ReactNode {
       <HomepageHeader />
       <main style={{display: 'flex', justifyContent: 'center', padding: '4rem 0'}}>
         <div className="container" style={{textAlign: 'center'}}>
-          <h2>Ready to build something amazing?</h2>
-          <p>This is your enterprise documentation portal.</p>
+          <h2>Ready to talk like a caveman?</h2>
+          <p>This is the official documentation for the Caveman ecosystem.</p>
         </div>
       </main>
     </Layout>

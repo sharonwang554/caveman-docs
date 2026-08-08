@@ -1,1 +1,0 @@
-{"title":"Body","body":{"required":true,"content":{"application/json":{"schema":{"type":"object","required":["name","email"],"properties":{"name":{"type":"string","example":"Jane Doe"},"email":{"type":"string","example":"jane@acme.com"}},"title":"NewUser"}}}}}

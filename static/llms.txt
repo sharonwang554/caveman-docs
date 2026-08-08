@@ -1,18 +1,16 @@
 # Caveman Ecosystem Documentation
 
-This portal contains documentation for the Caveman ecosystem, including Caveman, CaveGemma, Caveman Code, Cavemem, and Cavekit.
+This portal contains documentation for the Caveman ecosystem, a suite of tools designed to optimize, enhance, and debug AI coding assistants. The ecosystem includes:
 
-Caveman is a skill/plugin for coding agents (Claude Code, Codex, Gemini, Cursor, etc.) that makes the agent talk like a caveman to save output tokens (up to 65% on prose) while maintaining exact technical accuracy.
+- **Caveman Code**: A CLI and SDK tool that compresses AI outputs to save up to 65% on token costs by making the agent "talk like a caveman" while maintaining exact technical accuracy.
+- **Cavemem**: A memory management extension that allows AI agents to store, index, and retrieve cross-session memories effortlessly using MCP (Model Context Protocol).
+- **Cavekit**: A standardized toolkit for building, formatting, and verifying AI agent skills (like `.claude` or `.codex` tools) and prompt extensions using strict TDD guidelines.
+- **Cavegemma**: An open-source, heavily quantized lightweight model tailored specifically for edge-device code inference, heavily optimized to be small but mighty.
 
-## Caveman Levels
-- lite
-- full (default)
-- ultra
-- wenyan
+## Architecture Guidelines
+- **Caveman Code**: Supports levels (`lite`, `full`, `ultra`, `wenyan`). Use `/caveman <level>` or `/caveman-compress <file>`.
+- **Cavemem**: Configurable via `cavemem.config.json`. Interfaces smoothly with Claude Code and other MCP-enabled assistants.
+- **Cavekit**: Provides commands for formatting (`cavekit format`) and verifying (`cavekit check`) skills against standard constraints.
+- **Cavegemma**: Weights are distributed on HuggingFace; supports direct integration into LM Studio and Ollama.
 
-## Caveman Commands
-- /caveman <level>
-- /caveman-commit
-- /caveman-review
-- /caveman-stats
-- /caveman-compress <file>
+For comprehensive tutorials, API reference, and architecture details, please explore the specific sections within this documentation site.

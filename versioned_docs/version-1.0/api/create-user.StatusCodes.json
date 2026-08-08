@@ -1,1 +1,0 @@
-{"responses":{"201":{"description":"Created user","content":{"application/json":{"schema":{"type":"object","required":["id","name","email"],"properties":{"id":{"type":"string","example":"usr_12345"},"name":{"type":"string","example":"Jane Doe"},"email":{"type":"string","example":"jane@acme.com"}},"title":"User"}}}}}}

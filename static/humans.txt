@@ -1,7 +1,10 @@
 /* TEAM */
-Author: Julius Brussee
-Contributor: Sharon Wang (docusaurus-template)
+Engineer: Sharon Wang
+GitHub: https://github.com/sharonwang554
+Website: https://www.sharonwang.me/
+Note: This documentation portal is an unsolicited community contribution for the open-source Caveman project. 
 
 /* SITE */
-Last update: 2026/08
-Framework: Docusaurus
+Standards: HTML5, CSS3
+Components: Docusaurus, MDX, TypeScript
+Powered by: Vercel

@@ -1,14 +1,13 @@
-import {themes as prismThemes} from 'prism-react-renderer';
-import type {Config} from '@docusaurus/types';
+import { themes as prismThemes } from 'prism-react-renderer';
+import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
 import type * as OpenApiPlugin from 'docusaurus-plugin-openapi-docs';
-import orgConfig from './org-config.json';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
 const config: Config = {
-  title: orgConfig.title,
-  tagline: orgConfig.tagline,
+  title: 'Caveman Docs',
+  tagline: 'Documentation for the Caveman Ecosystem',
   favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
@@ -17,15 +16,15 @@ const config: Config = {
   },
 
   // Set the production url of your site here
-  url: orgConfig.url,
+  url: 'https://caveman.sharonwang.me',
   // Set the /<baseUrl>/ pathname under which your site is served
   // For GitHub pages deployment, it is often '/<projectName>/'
   baseUrl: '/',
 
   // GitHub pages deployment config.
   // If you aren't using GitHub pages, you don't need these.
-  organizationName: orgConfig.organizationName, // Usually your GitHub org/user name.
-  projectName: orgConfig.projectName, // Usually your repo name.
+  organizationName: 'sharonwang554', // Usually your GitHub org/user name.
+  projectName: 'caveman-docs', // Usually your repo name.
 
   onBrokenLinks: 'throw',
 
@@ -45,7 +44,7 @@ const config: Config = {
           sidebarPath: './sidebars.ts',
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
-          editUrl: `${orgConfig.githubRepo}/tree/main/`,
+          editUrl: 'https://github.com/sharonwang554/caveman-docs/tree/main/',
           showLastUpdateTime: true,
         },
         blog: false,
@@ -73,9 +72,9 @@ const config: Config = {
       respectPrefersColorScheme: true,
     },
     navbar: {
-      title: orgConfig.title,
+      title: 'Caveman Docs',
       logo: {
-        alt: `${orgConfig.title} Logo`,
+        alt: 'Caveman Docs Logo',
         src: 'img/logo.svg',
       },
       items: [
@@ -109,7 +108,7 @@ const config: Config = {
         },
 
         {
-          href: orgConfig.githubRepo,
+          href: 'https://github.com/sharonwang554/caveman-docs',
           label: 'GitHub',
           position: 'right',
         },
@@ -170,7 +169,7 @@ const config: Config = {
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://sharonwang.me" target="_blank" rel="noopener noreferrer">${orgConfig.copyright}</a> (Unofficial Community Contribution).`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://sharonwang.me" target="_blank" rel="noopener noreferrer">Sharon Wang</a> (Unofficial Community Contribution).`,
     },
     prism: {
       theme: prismThemes.github,

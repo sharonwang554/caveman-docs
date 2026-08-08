@@ -80,10 +80,32 @@ const config: Config = {
       },
       items: [
         {
-          type: 'docSidebar',
-          sidebarId: 'tutorialSidebar',
-          position: 'left',
+          type: 'dropdown',
           label: 'Docs',
+          to: '/docs/caveman/tutorials/getting-started',
+          position: 'left',
+          items: [
+            {
+              label: 'Caveman',
+              to: '/docs/caveman/tutorials/getting-started',
+            },
+            {
+              label: 'Caveman Code',
+              to: '/docs/caveman-code/tutorials/getting-started',
+            },
+            {
+              label: 'CaveGemma',
+              to: '/docs/cavegemma/tutorials/quick-start',
+            },
+            {
+              label: 'Cavekit',
+              to: '/docs/cavekit/tutorials/installation',
+            },
+            {
+              label: 'Cavemem',
+              to: '/docs/cavemem/tutorials/installation',
+            },
+          ],
         },
 
         {

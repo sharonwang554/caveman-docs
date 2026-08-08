@@ -43,11 +43,18 @@
 /* Glassmorphism for Navbar */
 .navbar {
   background: var(--glass-bg);
-  backdrop-filter: blur(12px);
-  -webkit-backdrop-filter: blur(12px);
   border-bottom: 1px solid var(--glass-border);
   box-shadow: var(--glass-shadow);
   transition: all 0.3s ease;
+}
+
+.navbar::before {
+  content: '';
+  position: absolute;
+  inset: 0;
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  z-index: -1;
 }
 
 /* Modern Card Styles */

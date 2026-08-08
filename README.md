@@ -1,5 +1,8 @@
 # Caveman Ecosystem Docs (Unofficial)
 
+[![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
+[![Built with Docusaurus](https://img.shields.io/badge/built%20with-Docusaurus-blue.svg)](https://docusaurus.io/)
+
 > **Note:** This is an unofficial community contribution by Sharon Wang and is not officially affiliated with Caveman.
 
 A comprehensive documentation portal for the Caveman Ecosystem built with Docusaurus. This repository contains the unified docs for:
@@ -18,20 +21,15 @@ A comprehensive documentation portal for the Caveman Ecosystem built with Docusa
 
 1. **Install dependencies:**
    ```bash
-   bun install
+   npm install
    ```
 
 2. **Start the development server:**
    ```bash
-   bun run start
+   npm run start
    ```
 
-3. **Run Unit Tests:**
-   ```bash
-   bun run test
-   ```
-
-4. **Lint Prose with Vale:**
+3. **Lint Prose with Vale:**
    ```bash
    vale docs/
    ```

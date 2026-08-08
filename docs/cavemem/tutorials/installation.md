@@ -31,7 +31,13 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-No daemon to start. Hooks write synchronously. A local worker auto-spawns in the background on the first hook to build embeddings and serve the viewer; it self-exits when idle (set `embedding.idleShutdownMs` to `0` to keep it running until killed). Disable auto-spawn — and with it the HTTP listener — with `cavemem config set embedding.autoStart false`.
+:::info[Architecture Notes]
+- **No daemon required:** Hooks write synchronously.
+- **Auto-spawning worker:** A local worker spawns in the background on the first hook to build embeddings and serve the viewer. It self-exits when idle.
+- **Configuration:** 
+  - Set `embedding.idleShutdownMs` to `0` to keep it running indefinitely.
+  - Disable auto-spawn (and the HTTP listener) with `cavemem config set embedding.autoStart false`.
+:::
 
 ### IDE capability matrix
 
@@ -57,19 +63,24 @@ Run `cavemem status` after installing to see which IDEs are wired up, with query
 
 ### Windows
 
-Claude Code runs hook commands through `sh -c` even on Windows. If Git for Windows' `Git\bin` isn't
-on your user `Path`, `sh` doesn't resolve, hooks fail silently, and capture quietly stops — `cavemem
-doctor`/`status` keep reporting healthy because the failure never reaches the CLI. Add
-`C:\Program Files\Git\bin` (or `<scoop dir>\apps\git\current\usr\bin` for a Scoop install) to your
-user `Path`, then verify with `where.exe sh`. `cavemem doctor` and `cavemem install` both check
-`sh` resolvability on win32 and print a warning if it's missing.
+:::warning[Windows `sh` Requirement]
+Claude Code runs hook commands through `sh -c` even on Windows. If Git for Windows' `Git\bin` isn't on your user `Path`, `sh` doesn't resolve. 
 
-Claude Code's hooks docs also describe a `shell` field (`"bash"` / `"powershell"`) and a shell-free
-`args` exec form. We looked at emitting either instead of the plain `sh`-shaped command string, but
-held off: we can't verify those fields against every Claude Code version in the wild, and the
-current command has no shell metacharacters, so it already tokenizes the same way whether Claude
-Code runs it through `sh` or falls back to PowerShell. Once there's a way to gate on a minimum
-Claude Code version, switching to the shell-free `args` form would drop the `sh` dependency
-entirely.
+When this happens:
+- Hooks fail silently and capture quietly stops.
+- `cavemem doctor` and `cavemem status` will falsely report healthy.
+
+**To Fix:**
+1. Add `C:\Program Files\Git\bin` (or `<scoop dir>\apps\git\current\usr\bin`) to your user `Path`.
+2. Verify with `where.exe sh`. 
+
+*(Note: `cavemem doctor` and `cavemem install` now both check `sh` resolvability on win32 and print a warning if it's missing).*
+:::
+
+:::note[Why not use native Windows Shells?]
+Claude Code's hooks docs describe a `shell` field (`"bash"` / `"powershell"`) and a shell-free `args` exec form. 
+
+We held off on emitting these because we cannot verify those fields against every Claude Code version in the wild. The current command has no shell metacharacters, so it tokenizes the same whether Claude Code runs it through `sh` or falls back to PowerShell. Once there's a way to gate on a minimum Claude Code version, switching to the shell-free `args` form will drop the `sh` dependency entirely.
+:::
 
 ---

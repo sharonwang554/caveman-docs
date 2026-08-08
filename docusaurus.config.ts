@@ -142,7 +142,6 @@ const config: Config = {
             },
           ],
         },
-
         {
           title: 'GitHub',
           items: [

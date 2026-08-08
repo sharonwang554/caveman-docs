@@ -22,6 +22,19 @@ sidebar_position: 1
 | `cavemem import <file.jsonl> [--dry-run]` | Load a JSONL export back in (merge, safe to re-run) |
 | `cavemem mcp` | Start MCP server (stdio) |
 
-Manual cross-device transfer: on machine A, `cavemem export backup.jsonl`. Copy the file to machine B, then on B, stop the worker (`cavemem stop`), run `cavemem import backup.jsonl`, and restart it (`cavemem start`). Records already present are skipped, and imported observations whose ids clash with different local ones get fresh ids — nothing is overwritten, and importing the same file twice is a no-op. Imported observations keep their original compressed content and get picked up by the embedding backfill like any new write — vectors themselves aren't exported.
+### Manual cross-device transfer
+
+1. **Export on machine A:** Run `cavemem export backup.jsonl`. 
+2. **Transfer:** Copy the file to machine B.
+3. **Import on machine B:**
+   - Stop the worker: `cavemem stop`
+   - Run the import: `cavemem import backup.jsonl`
+   - Restart the worker: `cavemem start`
+
+**Important Notes:**
+- Records already present are automatically skipped.
+- Imported observations whose IDs clash with different local ones get fresh IDs — nothing is overwritten.
+- Importing the same file twice is a no-op. 
+- Imported observations keep their original compressed content and get picked up by the embedding backfill like any new write (vectors themselves aren't exported).
 
 ---

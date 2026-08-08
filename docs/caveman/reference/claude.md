@@ -206,11 +206,21 @@ Configured in `settings.json` under `statusLine.command`. PowerShell counterpart
 
 **Plugin install** — hooks wired automatically by plugin system.
 
-**Standalone install** — `cli/install.js` (the unified Node installer) copies hook files into `$CLAUDE_CONFIG_DIR/hooks/` and merges SessionStart + UserPromptSubmit + statusline into `settings.json`. Uses the JSONC-tolerant helpers in `cli/lib/settings.js` so a commented `settings.json` no longer crashes the merge. Defensive `validateHookFields` runs before every write to prevent a single malformed hook from poisoning the entire file (Claude Code Zod silently discards the whole `settings.json` on schema mismatch).
+**Standalone install** — `cli/install.js` (the unified Node installer) handles the setup:
+- Copies hook files into `$CLAUDE_CONFIG_DIR/hooks/`.
+- Merges `SessionStart`, `UserPromptSubmit`, and statusline hooks into `settings.json`.
+- Uses JSONC-tolerant helpers (`cli/lib/settings.js`) so a commented `settings.json` no longer crashes the merge.
+- Runs a defensive `validateHookFields` check before every write to prevent a single malformed hook from poisoning the entire file (Claude Code Zod silently discards the whole `settings.json` on schema mismatch).
 
-The `install.sh` / `install.ps1` shims at the repo root delegate to `cli/install.js` via `node` (local clone) or `npx -y github:JuliusBrussee/caveman` (curl|bash). No legacy fallback path remains — earlier `install.sh.legacy` / `install.ps1.legacy` files were removed.
+*(Note: The `install.sh` / `install.ps1` shims at the repo root delegate to `cli/install.js` via local Node or `npx`. Legacy fallback paths have been removed).*
 
-**Uninstall** — `npx -y github:JuliusBrussee/caveman -- --uninstall` (or `node cli/install.js --uninstall` from a clone). Strips caveman hook entries from `settings.json` via substring marker `caveman`, deletes hook files, and removes the Claude plugin / Gemini extension. Also removes state files from `$CLAUDE_CONFIG_DIR` (`.caveman-active`, `.caveman-active.prev`, `.caveman-mode-log.jsonl`, `.caveman-statusline-suffix`, `.caveman-nudge-shown`); keeps `.caveman-history.jsonl` (lifetime savings data) with a printed note (#635). Skill installs done via `npx skills add` must be removed via the IDE's skill manager (we don't track them).
+**Uninstall** — run `npx -y github:JuliusBrussee/caveman -- --uninstall` (or `node cli/install.js --uninstall`). This does the following:
+- Strips caveman hook entries from `settings.json` via the substring marker `caveman`.
+- Deletes hook files and removes the Claude plugin / Gemini extension.
+- Removes state files from `$CLAUDE_CONFIG_DIR` (e.g. `.caveman-active`, `.caveman-mode-log.jsonl`).
+- **Preserves** `.caveman-history.jsonl` (lifetime savings data) and prints a note indicating it was kept.
+
+*(Note: Skill installs done via `npx skills add` must be removed manually via your IDE's skill manager, as they are not tracked).*
 
 ---
 

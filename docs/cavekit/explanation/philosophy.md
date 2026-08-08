@@ -56,7 +56,7 @@ Cavekit is one rock in the caveman family:
 
 ## philosophy
 
-:::tip Core Principle
+:::tip[Core Principle]
 The spec is the only artifact that earns its tokens. Everything else that costs tokens must either save more tokens later, or the user's attention, or it gets cut.
 :::
 

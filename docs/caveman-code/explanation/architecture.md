@@ -39,7 +39,7 @@ That is the entire product. Everything below is the coding agent it ships inside
 | **🪨 caveman** | `████████████▌` **524k** | 14 / 25 |
 | codex | `████████████████████████` 1,010k | 15 / 25 |
 
-:::info MicroBench Results
+:::info[MicroBench Results]
 
 **1.93× fewer tokens than Codex CLI on identical tasks.**
 Same `gpt-5.5` model. Same `xhigh` reasoning. Pass rate within one task.

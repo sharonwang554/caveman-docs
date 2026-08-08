@@ -17,7 +17,7 @@ No GGUF or AWQ build yet. Quantize one, open a PR, and it goes in the table with
 
 ## Repo layout
 
-```
+```text
 cavegemma/
 ├── data/
 │   ├── seeds/                 caveman repo snapshots (SKILL.md, eval prompts)

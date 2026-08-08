@@ -12,7 +12,8 @@ function HomepageHeader() {
   return (
     <header className={clsx('hero hero--primary', styles.heroBanner)}>
       <div className="container">
-        <Heading as="h1" className="hero__title">
+        <img src="/img/caveman-logo-banner.png" alt="Caveman Ecosystem Logo" style={{ maxWidth: '100%', height: 'auto', maxHeight: '120px', marginBottom: '1rem' }} />
+        <Heading as="h1" className="hero__title" style={{ display: 'none' }}>
           {siteConfig.title}
         </Heading>
         <p className="hero__subtitle">{siteConfig.tagline}</p>

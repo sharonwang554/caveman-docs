@@ -9,7 +9,7 @@ import orgConfig from './org-config.json';
 const config: Config = {
   title: orgConfig.title,
   tagline: orgConfig.tagline,
-  favicon: 'img/favicon.ico',
+  favicon: 'img/favicon.svg',
 
   // Future flags, see https://docusaurus.io/docs/api/docusaurus-config#future
   future: {
@@ -46,6 +46,7 @@ const config: Config = {
           // Please change this to your repo.
           // Remove this to remove the "edit this page" links.
           editUrl: `${orgConfig.githubRepo}/tree/main/`,
+          showLastUpdateTime: true,
         },
         blog: false,
         theme: {
@@ -56,6 +57,14 @@ const config: Config = {
   ],
 
   plugins: [],
+  themes: [
+    [
+      require.resolve('@easyops-cn/docusaurus-search-local'),
+      {
+        hashed: true,
+      },
+    ],
+  ],
 
   themeConfig: {
     // Replace with your project's social card
@@ -91,23 +100,55 @@ const config: Config = {
           title: 'Docs',
           items: [
             {
-              label: 'Getting Started',
+              label: 'Caveman',
               to: '/docs/caveman/tutorials/getting-started',
+            },
+            {
+              label: 'Caveman Code',
+              to: '/docs/caveman-code/tutorials/getting-started',
+            },
+            {
+              label: 'CaveGemma',
+              to: '/docs/cavegemma/tutorials/quick-start',
+            },
+            {
+              label: 'Cavekit',
+              to: '/docs/cavekit/tutorials/installation',
+            },
+            {
+              label: 'Cavemem',
+              to: '/docs/cavemem/tutorials/installation',
             },
           ],
         },
 
         {
-          title: 'More',
+          title: 'GitHub',
           items: [
             {
-              label: 'GitHub',
-              href: orgConfig.githubRepo,
+              label: 'Caveman',
+              href: 'https://github.com/JuliusBrussee/caveman',
+            },
+            {
+              label: 'Caveman Code',
+              href: 'https://github.com/JuliusBrussee/caveman-code',
+            },
+            {
+              label: 'CaveGemma',
+              href: 'https://github.com/JuliusBrussee/cavegemma',
+            },
+            {
+              label: 'Cavekit',
+              href: 'https://github.com/JuliusBrussee/cavekit',
+            },
+            {
+              label: 'Cavemem',
+              href: 'https://github.com/JuliusBrussee/cavemem',
             },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} ${orgConfig.copyright} Built with Docusaurus.`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://sharonwang.me" target="_blank" rel="noopener noreferrer">${orgConfig.copyright}</a> (Unofficial Community Contribution).`,
     },
     prism: {
       theme: prismThemes.github,

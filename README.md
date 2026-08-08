@@ -1,6 +1,6 @@
 # Caveman Ecosystem Docs (Unofficial)
 
-> **Note:** This is an unofficial community contribution by Sharon Wang and is not officially affiliated with Julius Brussee.
+> **Note:** This is an unofficial community contribution by Sharon Wang and is not officially affiliated with Caveman.
 
 A comprehensive documentation portal for the Caveman Ecosystem built with Docusaurus. This repository contains the unified docs for:
 - Caveman Code

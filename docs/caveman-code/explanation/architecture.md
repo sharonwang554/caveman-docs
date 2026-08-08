@@ -88,7 +88,7 @@ Pays for itself after one tool call.
 **<strong>Benchmark</strong> — 10 real tool-output fixtures · −86% aggregate**
 
 
-```
+```bash
   git diff (901 lines)   ██████████████████████████████████████████████████  -94%
   npm ls (701 lines)     ████████████████████████████████████████████████    -92%
   ls recursive (601 ln)  ███████████████████████████████████████████████     -90%

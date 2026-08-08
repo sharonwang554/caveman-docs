@@ -42,7 +42,7 @@ Brain big. Mouth small.
 
 That's the honest weighted average, and it hides a wide spread:
 
-```
+```text
 tokens saved vs the verbose source · 193 holdout pairs · cl100k
 
   dialogue   n=28   █████████████████████░░░░░░░░░░░░░░░░░░░░░░░░░░░░░░   41%
@@ -187,7 +187,7 @@ Code here is **MIT**. The adapter and merged model inherit the [Gemma terms](htt
 
 ## Citing
 
-```
+```bibtex
 @misc{brussee2026cavemanGemma,
   author = {Julius Brussee},
   title  = {Caveman-mode Gemma 4 31B},

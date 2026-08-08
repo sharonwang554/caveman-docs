@@ -46,7 +46,7 @@ Cross-agent persistent memory for coding assistants. Hooks fire at session bound
 
 ## How it works
 
-```
+```text
 session event  →  redact <private>  →  compress  →  SQLite + FTS5
                                                            ↑
                                                 MCP queries on demand
@@ -54,7 +54,7 @@ session event  →  redact <private>  →  compress  →  SQLite + FTS5
 
 What compression looks like in practice:
 
-```
+```text
 Input:  "The auth middleware throws a 401 when the session token expires; we should add a refresh path."
 Stored: "auth mw throws 401 @ session token expires. add refresh path."
 Viewed: "The auth middleware throws a 401 when session token expires. Add refresh path."

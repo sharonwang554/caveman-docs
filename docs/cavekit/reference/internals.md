@@ -13,7 +13,7 @@ no verb rewrites a section it does not own.
 
 ## files
 
-```
+```text
 FORMAT.md             spec schema + caveman encoding + sectioned ownership
 commands/             seven thin slash-command entry points → the skills (loop + reach-for)
 skills/spec           spec mutator — sole writer

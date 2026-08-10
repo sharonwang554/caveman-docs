@@ -4,7 +4,6 @@ title: Research
 sidebar_position: 2
 ---
 
-# research/
 
 Reproducible research artifacts for the token-efficiency initiative.
 

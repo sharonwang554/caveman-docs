@@ -1,9 +1,8 @@
 ---
 id: format
-title: Format Spec
+title: Format & Files
 ---
 
-# SPEC.md FORMAT
 
 Single file. Project root. Every cavekit command reads it.
 
@@ -150,3 +149,19 @@ high-blast-radius work, ⊥ for a typo. Skip any verb that would cost more
 attention than the change is worth.
 
 That is whole format.
+
+## FILES
+
+| File / Directory | Purpose |
+|---|---|
+| `FORMAT.md` | Spec schema + caveman encoding + sectioned ownership |
+| `commands/` | Seven thin slash-command entry points → the skills (loop + reach-for) |
+| `skills/spec` | Spec mutator — sole writer |
+| `skills/build` | Plan-execute, verification contract |
+| `skills/check` | Drift report |
+| `skills/grill` | Sharpen a fuzzy idea → `§G`/`§C` before spec |
+| `skills/research` | External knowledge → `§R`, every finding sourced |
+| `skills/review` | Adversarial senior review of the spec → hardens `§V` |
+| `skills/deepen` | Spare-budget design pass — make one module deep |
+| `skills/caveman` | Encoding utility |
+| `skills/backprop` | Bug → spec protocol (six steps) |

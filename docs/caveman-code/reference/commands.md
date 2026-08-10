@@ -9,7 +9,6 @@ title: Slash Commands
 description: Built-in slash commands and how to author your own as Markdown files.
 ---
 
-# Slash Commands
 
 Inside the TUI, type `/` to open the command palette. Caveman Code ships 10 built-in commands and reads user-authored markdown commands from `~/.cave/commands/` and project-local `.cave/commands/`.
 

@@ -9,7 +9,6 @@ title: API Reference
 description: SDK, JSON-RPC, OpenAPI, and embedding cave in your own apps.
 ---
 
-# API Reference
 
 Caveman Code exposes four programmatic surfaces. Pick whichever matches your integration.
 

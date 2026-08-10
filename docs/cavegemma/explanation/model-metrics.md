@@ -4,7 +4,6 @@ title: Model Metrics
 sidebar_position: 1
 ---
 
-# Cavegemma Model Metrics
 
 Gemma 4 31B, fine-tuned until it speaks [caveman](https://github.com/JuliusBrussee/caveman) natively. No skill file. No system prompt. No `/caveman` toggle. You ask a question, it answers in a quarter fewer tokens, and the code blocks come back byte-exact.
 

@@ -4,7 +4,6 @@ title: Philosophy & Ecosystem
 sidebar_position: 1
 ---
 
-# Cavekit Philosophy
 
 **Compressed spec-driven development for Claude Code**
 *One file · one loop · zero sub-agents*

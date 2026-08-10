@@ -4,7 +4,6 @@ title: Architecture & Ecosystem
 sidebar_position: 1
 ---
 
-# Cavemem Architecture
 
 **Why agent forget when agent can remember**
 

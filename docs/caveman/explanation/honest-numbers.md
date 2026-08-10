@@ -4,7 +4,6 @@ title: Honest Numbers
 sidebar_position: 2
 ---
 
-# Honest Numbers
 
 Caveman save tokens sometimes. Caveman cost tokens sometimes. This page say which is which, with the real numbers. No marketing. If caveman lose for your workload, this page tell you to turn it off.
 

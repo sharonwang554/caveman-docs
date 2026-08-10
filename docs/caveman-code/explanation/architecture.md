@@ -4,7 +4,6 @@ title: How it Works
 sidebar_position: 1
 ---
 
-# 🪨 Caveman Code
 
 **The terminal coding agent that talks like a caveman — and burns half the tokens doing it.**
 

@@ -9,7 +9,6 @@ title: Caveman Code vs the field
 description: Feature-by-feature comparison of Caveman Code with Claude Code, Codex, Aider, Crush, and opencode.
 ---
 
-# Caveman Code vs Claude Code, Codex, Aider, Crush, opencode
 
 This is the comparison table from the v2 master plan, kept current as features land. The pitch is short:
 

@@ -4,7 +4,6 @@ title: Changelog
 sidebar_position: 4
 ---
 
-# Changelog
 
 All notable changes to Caveman Code are documented here.
 

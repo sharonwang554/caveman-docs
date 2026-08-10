@@ -3,7 +3,6 @@ id: changelog
 title: Changelog
 ---
 
-# CHANGELOG
 
 ## v4.1.0 — the full loop
 

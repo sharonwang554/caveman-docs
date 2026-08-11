@@ -1,50 +1,66 @@
 ---
 id: security
-title: Security
+title: Security & Privacy
+sidebar_position: 4
 ---
 
+Caveman is designed to be completely secure, private, and offline-capable. This page outlines our security practices, privacy guarantees, and how to report vulnerabilities.
 
 ## Supported Versions
 
-Only the latest stable release builds are supported with security patches.
+:::info
+Only the latest stable release builds are supported with security patches. We recommend staying up-to-date.
+:::
 
 ## Reporting a Vulnerability
 
-If you identify a security vulnerability in caveman (such as arbitrary shell execution, workspace folder escapes, token/credentials hijack via prompts, or malicious JSON parsing flaws in extension settings), please do **not** open a public issue.
+:::warning[Do Not Open Public Issues]
+If you identify a security vulnerability in caveman (such as arbitrary shell execution, workspace folder escapes, token/credentials hijack via prompts, or malicious JSON parsing flaws in extension settings), **please do not open a public issue.**
+:::
 
 Please report vulnerabilities privately by emailing the maintainers or using [GitHub's private vulnerability reporting](https://github.com/JuliusBrussee/caveman/security/advisories/new).
 
 ## Privacy & Telemetry
 
-**Caveman has no telemetry. Zero.** No analytics, no crash reporting, no phone-home, no accounts, no API keys collected. There is no caveman backend — nothing to send data to.
+:::tip[Zero Telemetry Guarantee]
+**Caveman has no telemetry. Zero.** No analytics, no crash reporting, no phone-home, no accounts, and no API keys collected. There is no caveman backend — nothing to send data to.
+:::
 
-### After install: zero network calls
+### After Install: Zero Network Calls
 
-Once installed, nothing in caveman touches the network. Verified against the code (audit it yourself — every file is in this repo):
+Once installed, nothing in caveman touches the network. Every file is local and available for you to audit:
 
-- **The skill itself** (`skills/caveman/SKILL.md`) is a markdown prompt. It contains no code.
-- **The hooks** (`src/hooks/*.js`, statusline scripts) are local Node/shell scripts. They read and write local files only (flag file, session log, statusline savings file). No `http`/`https`/`fetch` anywhere in them.
-- **`/caveman-stats`** reads Claude Code's session JSONL from your local disk and prints counts. USD figures come from pricing constants hardcoded in the script. Nothing leaves your machine.
-- **`caveman-shrink`** (MCP middleware) spawns the MCP server *you* configure, locally, and compresses its output in-process. It makes no network calls of its own; any network activity belongs to the server you wrapped.
-- **`/caveman-compress`** rewrites a local file you name and saves a `.original.md` backup next to it. Local file I/O only.
+| Component | Description | Network Access |
+|---|---|---|
+| **The Skill** (`SKILL.md`) | A markdown prompt. It contains no code. | None |
+| **Hooks** | Local Node/shell scripts that read/write local files only (flag file, session log, statusline). | None |
+| **`/caveman-stats`** | Reads Claude Code's session JSONL from your local disk and prints counts. | None |
+| **`caveman-shrink`** | MCP middleware that compresses output in-process. (Note: the underlying MCP server *you* configure may make network calls). | None |
+| **`/caveman-compress`**| Rewrites a local file you name and saves a backup. | None |
 
-### At install time: exactly these network requests, nothing else
+### At Install Time: Required Network Requests
 
-- `curl … install.sh | bash` (or `irm … install.ps1 | iex`) fetches the shim from raw.githubusercontent.com, which delegates to `npx -y github:JuliusBrussee/caveman` — npm fetches this repo from GitHub.
-- The installer shells out to per-agent CLIs which fetch from their own registries: `claude plugin marketplace add` / `claude plugin install` (Anthropic/GitHub), `gemini extensions install`, `npm view caveman-shrink`, `npx -y skills add` (npm).
-- **Rare fallback:** if the installer runs detached from a repo checkout, it downloads the hook files from raw.githubusercontent.com **pinned to an immutable release tag** and verifies each against a published SHA-256 manifest before wiring anything (a mismatch aborts). From a normal clone or npx run, files are copied locally — offline installs work.
+During installation, the following external requests are made:
 
-Nothing is uploaded in any of these steps. Details and the full list of paths written: [Getting Started → Privacy](../tutorials/getting-started.md#privacy).
+- **Fetching the Shim:** `curl ... install.sh | bash` fetches the shim from `raw.githubusercontent.com`.
+- **Downloading the Repo:** `npx` fetches the Caveman repository from GitHub.
+- **Agent CLI Registries:** The installer shells out to per-agent CLIs (`claude plugin`, `gemini extensions`) which fetch from their own registries (Anthropic, GitHub, npm).
 
-### What stays on your machine
+:::note[Air-Gapped / Offline Installs]
+Caveman is self-contained after install and fully functional offline. There is no license server or external backend. For air-gapped environments, clone the repo internally and run the installer from the clone — **no network needed**.
+:::
 
-Everything. Skill/rule files in your agents' config dirs, the mode flag file and merged `settings.json` under `~/.claude/` (or `$CLAUDE_CONFIG_DIR`), the lifetime-savings statusline file, and `.original.md` backups from `/caveman-compress`. Uninstall removes what the installer wrote: `npx -y github:JuliusBrussee/caveman -- --uninstall`.
+*Nothing is uploaded in any of these steps. Details and the full list of paths written: [Getting Started → Privacy](../tutorials/getting-started.md#privacy).*
 
-### Enterprise / air-gapped use
+### What Stays on Your Machine
 
-Caveman is self-contained after install and fully functional offline. There is no license server, no external backend, and no data flow to audit beyond the install-time fetches above. For air-gapped environments, clone the repo internally and run the installer from the clone — no network needed.
+Everything. Skill/rule files in your agents' config dirs, the mode flag file and merged `settings.json` under your config directory, the lifetime-savings statusline file, and `.original.md` backups from `/caveman-compress`. 
 
-## About scanner warnings
+Uninstalling completely removes what the installer wrote: `npx -y github:JuliusBrussee/caveman -- --uninstall`.
 
-- **Windows Defender / SmartScreen on `install.ps1` (#383):** piping a script from the internet into `iex` and writing into agent config directories matches generic dropper heuristics, so AV tools may warn. The script is short and readable in this repo; the hook files it installs are SHA-256-verified against the pinned release manifest. If you'd rather not pipe-to-shell, clone the repo and run `node cli/install.js` — same result, fully inspectable first.
-- **Snyk "High Risk" on `caveman-compress` (#28):** the compress skill instructs the agent to read a file you name, rewrite it in place, and save a backup. In-place file rewriting is exactly what generic risk scoring flags. It is a real capability, not hidden — but there is no network access, no shell execution beyond what's documented in [`skills/caveman-compress/`](https://github.com/JuliusBrussee/caveman/tree/main/skills/caveman-compress), and it never touches files you didn't name.
+## About Scanner Warnings
+
+Occasionally, security scanners or antivirus software may flag Caveman due to its necessary installation behaviors:
+
+- **Windows Defender / SmartScreen on `install.ps1` (#383):** Piping a script from the internet into `iex` and writing into agent config directories matches generic dropper heuristics. The script is short and readable in this repo. If you'd rather not pipe-to-shell, clone the repo and run `node cli/install.js` instead.
+- **Snyk "High Risk" on `caveman-compress` (#28):** The compress skill instructs the agent to read a file you name, rewrite it in place, and save a backup. In-place file rewriting flags generic risk scoring. There is no network access or hidden shell execution.

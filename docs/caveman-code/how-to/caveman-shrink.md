@@ -5,7 +5,11 @@ title: Caveman Shrink (MCP)
 
 # caveman-shrink
 
-> MCP middleware. Wrap any MCP server. Cut the prose. Keep the substance.
+:::info
+
+MCP middleware. Wrap any MCP server. Cut the prose. Keep the substance.
+
+:::
 
 `caveman-shrink` is a stdio proxy for the [Model Context Protocol](https://modelcontextprotocol.io). It sits between Claude (or any MCP client) and an upstream MCP server, and compresses the prose fields (`description`, etc.) using the same boundaries as the [caveman](../../caveman) skill — preserving code, URLs, paths, and identifiers while stripping articles, filler, hedging, and pleasantries.
 

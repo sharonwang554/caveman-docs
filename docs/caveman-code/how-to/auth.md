@@ -97,6 +97,20 @@ Caveman Code reports per-message cost inline (e.g. `$0.0042 (cached: $0.0001)`) 
 
 ## Troubleshooting
 
-- **OAuth opens browser but never returns** — check that the loopback port (random in 1024-65535) isn't firewalled. Try `caveman login --device-auth` instead.
-- **`401 Unauthorized` from a stored token** — token expired. `caveman logout <provider>` then re-login. Refresh tokens are handled automatically when valid.
-- **Linux libsecret missing** — install `libsecret-tools` on Debian/Ubuntu, `libsecret` on Arch. Caveman Code falls back to plaintext-with-warning if absent and `CAVE_INSECURE_KEYRING=1` is set.
+<details>
+<summary><strong>OAuth opens browser but never returns</strong></summary>
+
+Check that the loopback port (random in 1024-65535) isn't firewalled. Try `caveman login --device-auth` instead.
+</details>
+
+<details>
+<summary><strong>`401 Unauthorized` from a stored token</strong></summary>
+
+The token expired. Run `caveman logout <provider>` then re-login. Refresh tokens are handled automatically when valid.
+</details>
+
+<details>
+<summary><strong>Linux libsecret missing</strong></summary>
+
+Install `libsecret-tools` on Debian/Ubuntu, `libsecret` on Arch. Caveman Code falls back to plaintext-with-warning if absent and `CAVE_INSECURE_KEYRING=1` is set.
+</details>

@@ -12,7 +12,11 @@ description: Feature-by-feature comparison of Caveman Code with Claude Code, Cod
 
 This is the comparison table from the v2 master plan, kept current as features land. The pitch is short:
 
-> **Caveman Code is the only terminal coding agent that beats Claude Code on cost, Aider on context selection, Codex on provider flexibility, and opencode on session UX — in a single MIT-licensed binary.**
+:::tip[Summary]
+
+**Caveman Code is the only terminal coding agent that beats Claude Code on cost, Aider on context selection, Codex on provider flexibility, and opencode on session UX — in a single MIT-licensed binary.**
+
+:::
 
 
 ## Capabilities

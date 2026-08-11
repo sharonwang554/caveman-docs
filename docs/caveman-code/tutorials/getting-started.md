@@ -29,7 +29,7 @@ caveman
 
 Works on macOS, Linux, Windows (PowerShell + WSL). Same package on every platform.
 
-::: tip Faster installs
+:::tip[Faster installs]
 pnpm, yarn, and bun all work too:
 
 ```bash
@@ -88,16 +88,16 @@ caveman doctor
 
 ## Auto-update
 
-Caveman Code checks the GitHub releases API once per 24 hours and prompts before applying. To pin a channel:
+Caveman Code checks the GitHub releases API once per 24 hours and prompts before applying. 
 
+1. **Pin a channel (optional)**:
 ```bash
 caveman update --channel stable    # default
 caveman update --channel beta
 caveman update --channel canary
 ```
 
-To update on demand:
-
+2. **Update on demand**:
 ```bash
 caveman update
 ```
@@ -110,12 +110,21 @@ caveman update --rollback
 
 ## Uninstall
 
+To completely remove Caveman Code from your system:
+
+1. **Remove the application directory**:
 ```bash
 rm -rf ~/.cave
-# remove the caveman-code symlink from your PATH (~/.local/bin/cave or /usr/local/bin/cave)
 ```
 
-Sessions live in `~/.cave/sessions/`. Memory (cavemem) lives in `~/.cavemem/` and is **not** removed by the above — clean it explicitly if needed.
+2. **Remove the global symlink**:
+Remove the `caveman-code` symlink from your PATH (typically `~/.local/bin/cave` or `/usr/local/bin/cave`).
+
+3. **Optional: Clear memory**:
+Sessions live in `~/.cave/sessions/`. Memory (cavemem) lives in `~/.cavemem/` and is **not** removed by the above — clean it explicitly if needed:
+```bash
+rm -rf ~/.cavemem
+```
 
 ## Headless / CI install
 

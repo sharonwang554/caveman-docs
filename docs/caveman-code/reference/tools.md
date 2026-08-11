@@ -3,7 +3,6 @@ title: Tools
 description: Caveman Code's built-in tools, Caveman Mode compression, and cost transparency.
 ---
 
-# Tools
 
 Caveman Code ships seven built-in tools, plus dynamic tools loaded from MCP servers and skills. All tool output is run through **Caveman Mode** compression before re-entering the model's context.
 

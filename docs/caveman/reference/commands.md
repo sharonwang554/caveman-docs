@@ -12,4 +12,8 @@ Here are the commands you get with Caveman installed.
 | `caveman-shrink` | MCP middleware. Wraps any MCP server, compresses its tool descriptions. |
 | `cavecrew-*` | Caveman subagents (investigator, builder, reviewer). ~60% fewer tokens than vanilla, so main context lasts longer. |
 
-> **Tip:** On Claude Code the statusline shows `[CAVEMAN] ⛏ 12.4k` — that's your lifetime tokens saved, updated on every `/caveman-stats`.
+:::tip[Tip]
+
+On Claude Code the statusline shows `[CAVEMAN] ⛏ 12.4k` — that's your lifetime tokens saved, updated on every `/caveman-stats`.
+
+:::

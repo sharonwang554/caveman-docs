@@ -3,7 +3,6 @@ title: Hooks
 description: 12-event lifecycle hooks. settings.json schema is identical to Claude Code.
 ---
 
-# Hooks
 
 Hooks are shell commands triggered by lifecycle events. Caveman Code matches **Claude Code's settings.json schema verbatim** — paste your existing `~/.claude/settings.json` into `~/.cave/settings.json` and your hooks Just Work.
 

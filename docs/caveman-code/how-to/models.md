@@ -3,7 +3,6 @@ title: Models
 description: Select and configure the LLM behind Caveman Code.
 ---
 
-# Models
 
 Caveman Code runs against any model your provider exposes. The defaults are chosen per provider and re-evaluated on each release based on the [proof-bench eval harness](https://github.com/JuliusBrussee/caveman-cli/tree/main/research/evals).
 

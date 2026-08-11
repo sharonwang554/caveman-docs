@@ -3,7 +3,6 @@ title: Plan Mode
 description: Read-only exploration, then a structured plan, then user-accepted edits.
 ---
 
-# Plan Mode
 
 Plan mode is a permission profile + a prompt convention. The agent is restricted to read-only tools and is instructed to end its turn with a structured plan. The user reviews and either accepts (`/act` flips to `acceptEdits`) or asks for revisions.
 

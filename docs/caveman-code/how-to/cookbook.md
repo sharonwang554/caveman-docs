@@ -3,7 +3,6 @@ title: Cookbook
 description: Working recipes — from CI integration to multi-agent code review.
 ---
 
-# Cookbook
 
 Concrete, copy-pasteable patterns. Every snippet was tested before publication.
 

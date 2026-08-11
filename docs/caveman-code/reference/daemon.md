@@ -3,7 +3,6 @@ title: Daemon
 description: Run cave as a headless server. Multi-client attach. Sessions survive SSH drops.
 ---
 
-# Daemon
 
 `caveman serve` starts a headless HTTP daemon that other Caveman Code clients (TUI, future desktop, future mobile) attach to. Sessions live in SQLite and survive SSH drops, machine sleep, and client crashes.
 

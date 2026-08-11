@@ -3,7 +3,6 @@ title: Memory (cavemem)
 description: Native cavemem integration. Episodic, semantic, and procedural memory.
 ---
 
-# Memory (cavemem)
 
 Caveman Code delegates persistent memory to **cavemem** — the user's existing MIT-licensed memory system at [github.com/JuliusBrussee/cavemem](https://github.com/JuliusBrussee/cavemem). Caveman Code's value-add is **policy**: when to write, what to inject, and the episodic→semantic consolidation pass.
 

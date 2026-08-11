@@ -3,7 +3,6 @@ title: Auth & Providers
 description: Authenticate Caveman Code with 20+ LLM providers via OAuth or API key.
 ---
 
-# Auth & Providers
 
 Caveman Code supports **20+ providers** and **6 OAuth flows**. You can mix and match — set an Anthropic key for primary work and a Groq key for the editor model in an `/architect` split, for example.
 

@@ -3,7 +3,6 @@ title: Recipes
 description: YAML pipelines for repeatable agent workflows.
 ---
 
-# Recipes
 
 A recipe is a YAML file at `.cave/recipes/<name>.yaml` that pins a goal, a model, a tool allowlist, and optional sub-recipes. Goose-style schema.
 

@@ -3,7 +3,6 @@ title: MCP
 description: Model Context Protocol — clients, transports, and cave-as-MCP-server.
 ---
 
-# MCP
 
 Caveman Code is a first-class MCP client and can also serve as an MCP server. Three transports: **stdio** (subprocess + JSON-RPC), **Streamable HTTP** (SSE deprecating mid-2026), and **in-process** (zero-spawn for caveman-code's own tools).
 

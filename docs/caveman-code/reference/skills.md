@@ -3,7 +3,6 @@ title: Skills
 description: Markdown skills loaded by description match. Claude Code-compatible.
 ---
 
-# Skills
 
 Skills are markdown files the model auto-loads when their description matches the user's intent. Slash commands are explicit (`/foo`); skills are implicit. Both share the same authoring format, frontmatter superset of Claude Code.
 

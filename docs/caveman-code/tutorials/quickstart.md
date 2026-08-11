@@ -3,7 +3,6 @@ title: Quickstart
 description: Install Caveman Code and run your first prompt in under 30 seconds.
 ---
 
-# Quickstart
 
 Goal: Caveman Code installed, authenticated, first prompt answered. Target time: 30 seconds.
 

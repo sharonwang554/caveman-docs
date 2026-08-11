@@ -3,7 +3,6 @@ title: Troubleshooting
 description: Fixes for the most common issues with Caveman Code.
 ---
 
-# Troubleshooting
 
 When something breaks, start here. If your issue isn't covered, [open a GitHub issue](https://github.com/JuliusBrussee/caveman-cli/issues/new) with `caveman doctor` output.
 
@@ -11,7 +10,9 @@ When something breaks, start here. If your issue isn't covered, [open a GitHub i
 
 ## Install
 
-### `cave: command not found` after install
+<details>
+<summary>`cave: command not found` after install</summary>
+
 
 Restart your shell, or:
 
@@ -22,7 +23,11 @@ source ~/.bashrc     # bash
 
 If still missing, the installer printed the install path — add it to your PATH.
 
-### `Operation not permitted` writing to `~/.cave`
+</details>
+
+<details>
+<summary>`Operation not permitted` writing to `~/.cave`</summary>
+
 
 Filesystem is read-only or owned by another user. Run:
 
@@ -31,7 +36,11 @@ ls -la ~/.cave
 chown -R "$USER" ~/.cave
 ```
 
-### Apple silicon: `bad CPU type in executable`
+</details>
+
+<details>
+<summary>Apple silicon: `bad CPU type in executable`</summary>
+
 
 You downloaded an x86_64 binary on an ARM Mac. Re-install via npm — the package is platform-agnostic:
 
@@ -39,15 +48,23 @@ You downloaded an x86_64 binary on an ARM Mac. Re-install via npm — the packag
 npm install -g @juliusbrussee/caveman-code
 ```
 
+</details>
+
 ## Auth
 
-### OAuth opens browser but never completes
+<details>
+<summary>OAuth opens browser but never completes</summary>
+
 
 1. Check that the loopback port (random in 1024-65535) isn't firewalled.
 2. Try device-code auth: `caveman login --device-auth`.
 3. Disable VPN that intercepts loopback.
 
-### `401 Unauthorized` on a stored token
+</details>
+
+<details>
+<summary>`401 Unauthorized` on a stored token</summary>
+
 
 Token expired and refresh failed. Re-login:
 
@@ -56,7 +73,11 @@ caveman logout <provider>
 caveman login <provider>
 ```
 
-### Linux libsecret not found
+</details>
+
+<details>
+<summary>Linux libsecret not found</summary>
+
 
 Install:
 
@@ -70,9 +91,13 @@ sudo pacman -S libsecret
 
 If your distro lacks libsecret, set `CAVE_INSECURE_KEYRING=1` to fall back to a plaintext token file (warning is shown).
 
+</details>
+
 ## Sessions
 
-### Caveman Code hangs on launch
+<details>
+<summary>Caveman Code hangs on launch</summary>
+
 
 Stuck on context load. Kill and:
 
@@ -82,17 +107,29 @@ caveman -r --no-context     # browse without loading any session
 
 Then identify and remove the bad session in `~/.cave/sessions/<cwd-hash>/`.
 
-### `/tree` shows no branches
+</details>
+
+<details>
+<summary>`/tree` shows no branches</summary>
+
 
 Branching is per-session. The first session in a cwd has no branches by definition. Run a few turns then `/fork` to test.
 
-### Compaction destroyed important context
+</details>
+
+<details>
+<summary>Compaction destroyed important context</summary>
+
 
 Use the shadow-git checkpoint: `/checkpoint list`, then `/rollback <N>`. Compaction itself runs a `PreCompact` hook — instrument it to write important context to disk first.
 
+</details>
+
 ## Tools
 
-### `Bash` tool times out
+<details>
+<summary>`Bash` tool times out</summary>
+
 
 Default tool timeout is 60s. Override per call:
 
@@ -108,7 +145,11 @@ Or globally in `~/.cave/settings.json`:
 }
 ```
 
-### `Edit` keeps applying to the wrong location
+</details>
+
+<details>
+<summary>`Edit` keeps applying to the wrong location</summary>
+
 
 The model's view of the file is stale. After a hook writes to the file, ask cave to re-read:
 
@@ -116,7 +157,11 @@ The model's view of the file is stale. After a hook writes to the file, ask cave
 > re-read src/foo.ts and apply the change
 ```
 
-### Caveman Mode is summarizing too aggressively
+</details>
+
+<details>
+<summary>Caveman Mode is summarizing too aggressively</summary>
+
 
 Lower compression intensity:
 
@@ -125,13 +170,21 @@ Lower compression intensity:
 /caveman off                  # turn off entirely
 ```
 
+</details>
+
 ## Permissions
 
-### Every action prompts even though I clicked "Allow always"
+<details>
+<summary>Every action prompts even though I clicked "Allow always"</summary>
+
 
 The allow-key is more specific than the new action. E.g. `Read packages/foo/**` won't match `Read packages/bar/baz.ts`. Add a broader allow-key with `caveman permissions add "Read **"`.
 
-### Sandbox blocks something I need
+</details>
+
+<details>
+<summary>Sandbox blocks something I need</summary>
+
 
 `caveman debug sandbox` shows the active policy. Caveman Code executes all tool requests directly - there is no sandbox flag or permission prompts. The OS enforces filesystem permissions. To constrain a session, use `--tools` to limit available tools (e.g. `--tools read,grep,find,ls` for read-only).
 
@@ -145,9 +198,13 @@ For permanent allowlist, add to `permissions.json`:
 }
 ```
 
+</details>
+
 ## MCP
 
-### `caveman mcp doctor` shows server unreachable
+<details>
+<summary>`caveman mcp doctor` shows server unreachable</summary>
+
 
 ```bash
 caveman mcp logs <server>     # tails stderr of stdio server
@@ -155,13 +212,21 @@ caveman mcp logs <server>     # tails stderr of stdio server
 
 Common causes: command not on PATH, env var missing, server's auth flow incomplete.
 
-### MCP tools don't show up in the model's context
+</details>
+
+<details>
+<summary>MCP tools don't show up in the model's context</summary>
+
 
 By default Caveman Code defers MCP schemas — only names are listed until the model calls `ToolSearch`. This reduces context bloat by ~85%.
 
+</details>
+
 ## Hooks
 
-### Hook never fires
+<details>
+<summary>Hook never fires</summary>
+
 
 Check the matcher:
 
@@ -171,13 +236,21 @@ caveman hooks test PreToolUse --tool Edit --path src/foo.ts
 
 Reports whether each hook would fire for that input. Common mistake: `paths` glob doesn't include the actual file path.
 
-### Hook output isn't reaching the model
+</details>
+
+<details>
+<summary>Hook output isn't reaching the model</summary>
+
 
 Only stdout is fed back to the model as a system reminder. Stderr is logged but ignored. Check that your hook prints to stdout, not stderr.
 
+</details>
+
 ## Memory (cavemem)
 
-### `/memory search` returns nothing
+<details>
+<summary>`/memory search` returns nothing</summary>
+
 
 cavemem isn't running. Check:
 
@@ -188,7 +261,11 @@ caveman mcp doctor   # should show cavemem reachable
 
 If missing: `npm install -g cavemem` then `caveman init`.
 
-### Memory injection too noisy
+</details>
+
+<details>
+<summary>Memory injection too noisy</summary>
+
 
 Lower the cap in `settings.json`:
 
@@ -200,13 +277,21 @@ Lower the cap in `settings.json`:
 
 Or disable for the session: `/memory off`.
 
+</details>
+
 ## Performance
 
-### TUI feels laggy
+<details>
+<summary>TUI feels laggy</summary>
+
 
 Caveman Code automatically detects and uses synchronized output (DEC mode 2026) on supported terminals. If you see rendering issues, ensure your terminal supports ANSI escape sequences and check `caveman doctor` output for terminal detection status.
 
-### Long sessions get slow
+</details>
+
+<details>
+<summary>Long sessions get slow</summary>
+
 
 Run `/compact` to manually compact. Or enable auto-compact at a lower threshold:
 
@@ -215,6 +300,8 @@ Run `/compact` to manually compact. Or enable auto-compact at a lower threshold:
     "session": { "autoCompactAtTokens": 80000 }
 }
 ```
+
+</details>
 
 ## Reporting issues
 

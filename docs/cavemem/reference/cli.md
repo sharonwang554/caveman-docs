@@ -4,7 +4,6 @@ title: CLI
 sidebar_position: 1
 ---
 
-## CLI
 
 | Command | |
 |---------|--|

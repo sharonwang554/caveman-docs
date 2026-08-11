@@ -4,7 +4,6 @@ title: MCP
 sidebar_position: 2
 ---
 
-## MCP
 
 Progressive disclosure: `search` and `timeline` return compact results; `get_observations` fetches full bodies.
 

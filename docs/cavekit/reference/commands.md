@@ -4,7 +4,6 @@ title: Commands
 sidebar_position: 1
 ---
 
-## commands
 
 **the loop** — run these every time:
 

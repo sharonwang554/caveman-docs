@@ -4,7 +4,7 @@ Here are the commands you get with Caveman installed.
 
 | Command | What it does |
 |---|---|
-| `/caveman [lite|full|ultra|wenyan]` | Compress every reply. Level sticks for the session. |
+| <code>/caveman [lite&#124;full&#124;ultra&#124;wenyan]</code> | Compress every reply. Level sticks for the session. |
 | `/caveman-commit` | Conventional Commit messages, ≤50-char subject. Why over what. |
 | `/caveman-review` | One-line PR comments: `L42: 🔴 bug: user null. Add guard.` |
 | `/caveman-stats` | Real session token usage, lifetime savings, USD. Tweetable line with `--share`. |

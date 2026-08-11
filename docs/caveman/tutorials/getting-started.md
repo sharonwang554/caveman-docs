@@ -15,19 +15,45 @@ One install. Works for every AI coding agent on your machine.
 
 If just want it to work, run the one-liner. If want to know what gets touched, scroll down.
 
-## One-liner
+## Caveman Proxy
 
-**macOS / Linux / WSL / Git Bash**
+One command wraps your agent and routes provider traffic through a local proxy. Caveman Engine powers its compression. In a pinned 54-run Claude Code benchmark, Caveman used **33.2% fewer provider-reported input tokens** than direct Claude Code while passing all 18 exact-answer checks.
+
+No code change. In local mode, Caveman sends no prompts or outputs to a Caveman backend: the proxy forwards each request to your chosen provider, while CCR recovery copies stay on your disk. Claude Pro/Max OAuth credentials pass through to Anthropic as-is.
+
+<p align="center">
+  <img src="https://raw.githubusercontent.com/JuliusBrussee/caveman/main/docs/assets/wrap-stack.svg" alt="coding agent talks to a local caveman proxy" width="820" />
+</p>
+
+### Install the Proxy CLI
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash
+npm install -g @caveman-ai/cli
+caveman setup --install   # downloads the signed runtime binaries
 ```
 
-**Windows (PowerShell 5.1+)**
+`setup --install` verifies the signed checksum manifest and the SHA-256 of every binary before an atomic install. Prefer building from source? A clone plus `scripts/install-local-cli.sh` (macOS/Linux) or `pwsh -File scripts/install-local-cli.ps1` (Windows) still works — that path needs Go and `pnpm`. SDK users can point provider base URLs at the local Proxy directly (`ANTHROPIC_BASE_URL=http://127.0.0.1:8787/anthropic`).
 
-```powershell
-irm https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.ps1 | iex
+```bash
+caveman claude                  # full stack (default): S4 compress + TOON best-of + caveman & browse MCP tools + output shrink
+caveman wrap --off codex        # byte-safe pass-through metering only
+caveman wrap --pixel claude     # lossy text → PNG pixel mode (model-gated)
 ```
+
+## One-liner
+
+<Tabs>
+  <TabItem value="mac" label="macOS / Linux">
+    ```bash
+    curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash
+    ```
+  </TabItem>
+  <TabItem value="win" label="Windows (PowerShell)">
+    ```powershell
+    irm https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.ps1 | iex
+    ```
+  </TabItem>
+</Tabs>
 
 > Piping a script straight into a shell runs it sight-unseen. If you'd rather read it first, download then run: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh -o install.sh` (review it) `&& bash install.sh`. The installer downloads hook files from a pinned release tag and verifies them against a committed SHA-256 manifest before writing.
 
@@ -35,6 +61,7 @@ What it does:
 
 - Auto-detects every supported agent installed on your machine (Claude Code, Cursor, Codex, etc.).
 - For each one, runs that agent's native install path (plugin / extension / rule file / `npx skills add`).
+- Installs Cavecrew investigator, builder, and reviewer presets where the host supports native subagents.
 - Wires Claude Code hooks and statusline badge on top. (`caveman-shrink` MCP middleware is opt-in via `--with-mcp-shrink` — see flag table below.)
 - Skips anything you don't have. Safe to re-run. ~30 seconds end-to-end.
 
@@ -180,81 +207,10 @@ cat "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/.caveman-active"
 # expected output: full
 ```
 
-If it's missing or empty, the SessionStart hook didn't fire. See troubleshooting below.
+If it's missing or empty, the SessionStart hook didn't fire. Check the [Troubleshooting](../how-to/troubleshooting.md) guide for help.
 
 Statusline should show `[CAVEMAN]` (orange) at the bottom of Claude Code. After your first `/caveman-stats` run it appends a savings counter like `[CAVEMAN] ⛏ 12.4k`.
 
-## Uninstall
-
-```bash
-npx -y github:JuliusBrussee/caveman -- --uninstall
-```
-
-What it removes:
-
-- Caveman hook entries from `$CLAUDE_CONFIG_DIR/settings.json` (default `~/.claude/`; matched by the substring `caveman`).
-- Hook files in `$CLAUDE_CONFIG_DIR/hooks/` (`caveman-activate.js`, `caveman-mode-tracker.js`, `caveman-stats.js`, `caveman-config.js`, `caveman-statusline.{sh,ps1}`, plus the dir's `package.json` marker).
-- The Claude Code plugin and the Gemini CLI extension (if installed).
-- The opencode native plugin (`~/.config/opencode/plugins/caveman/`, the `plugin` and `mcp.caveman-shrink` entries from `opencode.json`, our skill/agent/command files, the caveman block from `AGENTS.md`, and the opencode flag file).
-- The OpenClaw workspace skill folder and the marker-fenced block from `~/.openclaw/workspace/SOUL.md` (when present).
-- The `.caveman-active` flag file.
-
-What it does **not** remove:
-
-- Skills installed via `npx skills add` — the `skills` CLI manages those. Run `npx skills remove caveman` (or use your IDE's skill manager).
-- Per-repo rule files written by `--with-init` (`.cursor/rules/`, `.windsurf/rules/`, `.clinerules/`, `.github/copilot-instructions.md`, `.opencode/AGENTS.md`, `AGENTS.md`). Delete by hand if you want.
-
-## Troubleshooting
-
-**"Install script broke. What now?"**
-
-Open your agent in this repo and say:
-
-> "Read CLAUDE.md and INSTALL.md. Install caveman for me."
-
-Agent read repo. Agent run install. Caveman make agent talk less — agent first job is install caveman to talk less. Snake eat tail.
-
-Still broken? [Open an issue](https://github.com/JuliusBrussee/caveman/issues).
-
-**"I ran the installer but Claude Code isn't talking caveman."**
-
-1. Run `node cli/install.js --list` — confirm `claude` is on the detected list. If not, `claude` isn't on `PATH`. Fix that first.
-2. Open `$CLAUDE_CONFIG_DIR/settings.json` (default `~/.claude/settings.json`) and look for `"hooks"` containing `caveman-activate.js` and `caveman-mode-tracker.js`. If missing, re-run with `--force`.
-3. Check `$CLAUDE_CONFIG_DIR/.caveman-active` exists with content `full`. If not, the SessionStart hook silent-failed — check `$CLAUDE_CONFIG_DIR/hooks/` for the JS files and try `node $CLAUDE_CONFIG_DIR/hooks/caveman-activate.js < /dev/null` to see if it errors.
-4. Restart Claude Code. The SessionStart hook only fires on session start, not mid-session.
-
-**"Hooks failing on Windows."**
-
-- Use `install.ps1`, not `install.sh`. Git Bash works for the shell version, but the hook side wires PowerShell counterparts (`caveman-statusline.ps1`).
-- PowerShell 5.1 minimum. Check with `$PSVersionTable.PSVersion`.
-- If `irm | iex` blocks on execution policy: `Set-ExecutionPolicy -Scope Process -ExecutionPolicy Bypass` for the install session, then re-run.
-- Long-running issues: see `docs/install-windows.md` in the repo for manual fallback.
-
-**"My `settings.json` got mangled."**
-
-The installer uses a JSONC-tolerant parser (`cli/lib/settings.js`) so comments and trailing commas don't crash the merge. It also runs `validateHookFields()` before every write so a malformed hook can't poison the file. If something still went wrong:
-
-1. Check for a backup at `$CLAUDE_CONFIG_DIR/settings.json.bak` (installer writes one before any merge).
-2. If no backup, restore from your shell history or version control.
-3. File an issue with the broken `settings.json` content (redacted) — that file passing validation but breaking Claude Code is a bug we want to fix.
-
-**"I'm in a managed env where I can't install hooks."**
-
-Use the rule-file-only path. Hooks are Claude Code-specific; everything else works via static rule files:
-
-```bash
-# Just install for one agent, no Claude hooks
-node cli/install.js --only cursor
-
-# Or write rule files into the current repo only (no global state)
-node cli/install.js --with-init --only cursor --only windsurf
-```
-
-This drops `.cursor/rules/caveman.mdc` (and friends) into your repo. No hooks, no global config, nothing outside the repo.
-
-**"`npx skills add` errored on a profile slug."**
-
-The profile slug must exist in [vercel-labs/skills](https://github.com/vercel-labs/skills). If a row in the table above 404s, the upstream profile was renamed or removed — open an issue, we'll update.
 
 ## Privacy
 
@@ -279,24 +235,4 @@ Stuck? Open an issue: [https://github.com/JuliusBrussee/caveman/issues](https://
 
 > On Claude Code, Codex, and Gemini it's already on from message one. No command needed.
 
-## Verify Installation
 
-After install, run three quick checks to ensure everything is wired correctly:
-
-**1. See what got installed**
-
-```bash
-node cli/install.js --list
-```
-You should see ~30 rows. Detected agents are marked. If an agent you wanted isn't marked, it likely means its binary isn't on your `PATH`.
-
-**2. Talk to Claude Code**
-
-Open Claude Code and type `/caveman`. The response should be terse fragments — "Got it. Caveman mode on." or similar. Try asking a real question like *"What is closures in JS?"* — the answer should drop articles and read like grunts.
-
-**3. Check the flag file**
-
-```bash
-cat "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/.caveman-active"
-```
-The expected output is `full`. If the file is missing or empty, the SessionStart hook didn't fire properly. Check the [Troubleshooting](../how-to/troubleshooting.md) guide for help.

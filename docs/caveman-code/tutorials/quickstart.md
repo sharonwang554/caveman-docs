@@ -6,7 +6,8 @@ description: Install Caveman Code and run your first prompt in under 30 seconds.
 
 Goal: Caveman Code installed, authenticated, first prompt answered. Target time: 30 seconds.
 
-
+import Tabs from '@theme/Tabs';
+import TabItem from '@theme/TabItem';
 
 ## 1. Install
 
@@ -26,23 +27,25 @@ caveman --version
 
 Pick **one** of these. Caveman Code detects which keys you already have in your environment.
 
-::: code-group
-
-```bash [Anthropic API key]
+<Tabs>
+  <TabItem value="anthropic" label="Anthropic API key" default>
+```bash
 export ANTHROPIC_API_KEY=sk-ant-...
 ```
-
-```bash [OpenAI API key]
+  </TabItem>
+  <TabItem value="openai" label="OpenAI API key">
+```bash
 export OPENAI_API_KEY=sk-...
 ```
-
-```bash [Claude Pro / ChatGPT Plus / Copilot / Gemini]
+  </TabItem>
+  <TabItem value="oauth" label="OAuth (Claude / ChatGPT / Gemini)">
+```bash
 caveman
 # inside the TUI:
 /login
 ```
-
-:::
+  </TabItem>
+</Tabs>
 
 The OAuth flow opens a browser and stores tokens in your OS keychain (macOS Keychain, Linux libsecret, Windows Credential Manager).
 

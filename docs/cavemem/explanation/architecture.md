@@ -20,7 +20,7 @@ Cross-agent persistent memory for coding assistants. Hooks fire at session bound
 - **Hybrid search.** SQLite FTS5 keyword + local vector index, combined with a tunable ranker.
 - **Local by default.** No network calls. Optional remote embedding providers via config.
 - **Web viewer.** Read-only UI at `http://localhost:37777` for browsing sessions in human-readable form. Token-protected: the worker generates a local bearer token on first start and injects it into the served page, so `cavemem viewer` still opens with zero friction while `/api/*` rejects requests without it.
-- **Cross-IDE installers.** Claude Code, OpenCode, Codex, GitHub Copilot, Augment Code capture observations; Cursor, Gemini CLI, Antigravity, IBM Bob are query-only (MCP search over memory captured elsewhere) — one command each, see the [capability matrix](#install).
+- **Cross-IDE installers.** Claude Code, OpenCode, Codex, GitHub Copilot, Augment Code capture observations; Cursor, Gemini CLI, Antigravity, IBM Bob are query-only (MCP search over memory captured elsewhere) — one command each, see the [capability matrix](../tutorials/installation.md).
 - **Privacy-aware.** `<private>...</private>` stripped at write boundary. Path globs exclude whole directories.
 
 ---

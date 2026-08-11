@@ -50,5 +50,5 @@ import TabItem from '@theme/TabItem';
 There is no step three. Ask question, model talk caveman.
 
 :::tip[Watch out]
-Gemma 4 hands you a `Gemma4Processor` rather than a tokenizer, so if you wander off the beaten path, unwrap it first: `tokenizer = getattr(tokenizer, "tokenizer", tokenizer)`. Eleven more traps like that one are written down in our [Agents Reference](/docs/cavegemma/reference/agents), each of which cost real hours.
+Gemma 4 hands you a `Gemma4Processor` rather than a tokenizer, so if you wander off the beaten path, unwrap it first: `tokenizer = getattr(tokenizer, "tokenizer", tokenizer)`. Eleven more traps like that one are written down in our **Agents Reference**, each of which cost real hours.
 :::

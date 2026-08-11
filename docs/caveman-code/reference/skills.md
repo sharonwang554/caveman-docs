@@ -46,7 +46,7 @@ The model sees the **description** in every turn (cheap — descriptions are sho
 
 ## Frontmatter
 
-Same superset as [slash commands](/reference/slash-commands#frontmatter). Skills add:
+Same superset as [slash commands](./commands.md#authoring-a-slash-command). Skills add:
 
 | Key | Purpose |
 |---|---|
@@ -78,7 +78,7 @@ caveman plugin search security
 caveman plugin install ghost-sec/sec-pack
 ```
 
-See [Plugin Marketplace](/cookbook#plugin-marketplace).
+See [Plugin Marketplace](./recipes.md).
 
 ## Importing Claude Code skills
 
@@ -91,5 +91,5 @@ Format-identical. Drop in. The 5k re-attach cap, the 25k shared budget, and the 
 ## Anti-patterns
 
 - **Long skill bodies as defaults** — they don't burn tokens until matched, but a sloppy `description` causes false matches. Be specific.
-- **Skills doing what hooks should do** — skills are model-invoked; deterministic invariants belong in [hooks](/reference/hooks).
-- **Skills as long workflows** — for multi-step pipelines, prefer a [recipe](/reference/recipes).
+- **Skills doing what hooks should do** — skills are model-invoked; deterministic invariants belong in [hooks](./hooks.md).
+- **Skills as long workflows** — for multi-step pipelines, prefer a [recipe](./recipes.md).

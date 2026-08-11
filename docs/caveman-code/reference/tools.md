@@ -19,9 +19,9 @@ Caveman Code ships seven built-in tools, plus dynamic tools loaded from MCP serv
 | `Bash` | Run shell commands | gated by sandbox |
 | `Edit` | Find/replace edit on a file | gated by permission mode |
 | `Write` | Write a file | gated by permission mode |
-| `Task` / `Agent` | Dispatch a [subagent](/reference/subagents) | always |
+| `Task` / `Agent` | Dispatch a [subagent](./subagents.md) | always |
 
-Plan mode restricts to `Read`, `Glob`, `Grep`, and `Bash` with a read-only allowlist. Enable with `/plan` in the TUI. See [Plan Mode](/reference/plan-mode).
+Plan mode restricts to `Read`, `Glob`, `Grep`, and `Bash` with a read-only allowlist. Enable with `/plan` in the TUI. See [Plan Mode](./plan-mode.md).
 
 ## Caveman Mode compression
 
@@ -73,7 +73,7 @@ breakdown:
 
 `/tokens` opens a live breakdown panel.
 
-Daily/weekly totals persist to `~/.cave/usage.json`. See [Cost Transparency Panel](/reference/tools#cost-transparency).
+Daily/weekly totals persist to `~/.cave/usage.json`. See [Cost Transparency Panel](#cost-transparency).
 
 ## ToolSearch (deferred MCP schemas)
 

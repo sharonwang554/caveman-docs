@@ -26,7 +26,8 @@ const config: Config = {
   organizationName: 'sharonwang554', // Usually your GitHub org/user name.
   projectName: 'caveman-docs', // Usually your repo name.
 
-  onBrokenLinks: 'warn',
+  onBrokenLinks: 'throw',
+  onBrokenMarkdownLinks: 'warn',
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you

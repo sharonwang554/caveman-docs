@@ -34,7 +34,7 @@ Once installed, nothing in caveman touches the network. Verified against the cod
 - The installer shells out to per-agent CLIs which fetch from their own registries: `claude plugin marketplace add` / `claude plugin install` (Anthropic/GitHub), `gemini extensions install`, `npm view caveman-shrink`, `npx -y skills add` (npm).
 - **Rare fallback:** if the installer runs detached from a repo checkout, it downloads the hook files from raw.githubusercontent.com **pinned to an immutable release tag** and verifies each against a published SHA-256 manifest before wiring anything (a mismatch aborts). From a normal clone or npx run, files are copied locally — offline installs work.
 
-Nothing is uploaded in any of these steps. Details and the full list of paths written: [INSTALL.md → Privacy](../tutorials/install.md#privacy).
+Nothing is uploaded in any of these steps. Details and the full list of paths written: [Getting Started → Privacy](../tutorials/getting-started.md#privacy).
 
 ### What stays on your machine
 
@@ -47,4 +47,4 @@ Caveman is self-contained after install and fully functional offline. There is n
 ## About scanner warnings
 
 - **Windows Defender / SmartScreen on `install.ps1` (#383):** piping a script from the internet into `iex` and writing into agent config directories matches generic dropper heuristics, so AV tools may warn. The script is short and readable in this repo; the hook files it installs are SHA-256-verified against the pinned release manifest. If you'd rather not pipe-to-shell, clone the repo and run `node cli/install.js` — same result, fully inspectable first.
-- **Snyk "High Risk" on `caveman-compress` (#28):** the compress skill instructs the agent to read a file you name, rewrite it in place, and save a backup. In-place file rewriting is exactly what generic risk scoring flags. It is a real capability, not hidden — but there is no network access, no shell execution beyond what's documented in [`skills/caveman-compress/`](./skills/caveman-compress/), and it never touches files you didn't name.
+- **Snyk "High Risk" on `caveman-compress` (#28):** the compress skill instructs the agent to read a file you name, rewrite it in place, and save a backup. In-place file rewriting is exactly what generic risk scoring flags. It is a real capability, not hidden — but there is no network access, no shell execution beyond what's documented in [`skills/caveman-compress/`](https://github.com/JuliusBrussee/caveman/tree/main/skills/caveman-compress), and it never touches files you didn't name.

@@ -75,22 +75,22 @@ Default for every section. Rules:
 
 **Symbols** (save tokens, machine-readable):
 
-```
-→   leads to / becomes / triggers
-∴   therefore / fix
-∀   for all / every
-∃   exists / some
-!   must
-?   may / optional
-⊥   never / impossible / forbidden
-≠   not equal / differs from
-∈   in / member of
-∉   not in
-≤   at most
-≥   at least
-&   and
-|   or
-```
+| Symbol | Meaning |
+|---|---|
+| `→` | leads to / becomes / triggers |
+| `∴` | therefore / fix |
+| `∀` | for all / every |
+| `∃` | exists / some |
+| `!` | must |
+| `?` | may / optional |
+| `⊥` | never / impossible / forbidden |
+| `≠` | not equal / differs from |
+| `∈` | in / member of |
+| `∉` | not in |
+| `≤` | at most |
+| `≥` | at least |
+| `&` | and |
+| `\|` | or |
 
 **Bad** (v1 prose):
 

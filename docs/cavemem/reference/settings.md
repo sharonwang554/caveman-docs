@@ -4,8 +4,6 @@ title: Settings
 sidebar_position: 3
 ---
 
-## Settings
-
 `<cavemem home>/settings.json`, where the cavemem home directory resolves in this order:
 
 1. `CAVEMEM_HOME` env var, if set.

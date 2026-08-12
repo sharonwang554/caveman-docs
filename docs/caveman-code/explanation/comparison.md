@@ -2,10 +2,6 @@
 id: comparison
 title: Comparison
 sidebar_position: 3
----
-
----
-title: Caveman Code vs the field
 description: Feature-by-feature comparison of Caveman Code with Claude Code, Codex, Aider, Crush, and opencode.
 ---
 

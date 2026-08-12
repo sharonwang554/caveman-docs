@@ -2,10 +2,6 @@
 id: commands
 title: Commands
 sidebar_position: 2
----
-
----
-title: Slash Commands
 description: Built-in slash commands and how to author your own as Markdown files.
 ---
 

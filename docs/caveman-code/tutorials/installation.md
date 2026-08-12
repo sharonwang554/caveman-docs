@@ -1,6 +1,6 @@
 ---
-id: getting-started
-title: Getting Started
+id: installation
+title: Installation
 sidebar_position: 1
 ---
 
@@ -17,7 +17,17 @@ import TabItem from '@theme/TabItem';
 Requires Node.js 20+:
 
 ```bash
+# npm
 npm install -g @juliusbrussee/caveman-code
+
+# bun
+bun add -g @juliusbrussee/caveman-code
+
+# yarn
+yarn global add @juliusbrussee/caveman-code
+
+# pnpm
+pnpm add -g @juliusbrussee/caveman-code
 ```
 
 The package installs two binaries — `caveman` (primary) and `caveman-code` (alias). Either works.
@@ -28,17 +38,6 @@ caveman
 ```
 
 Works on macOS, Linux, Windows (PowerShell + WSL). Same package on every platform.
-
-:::tip[Faster installs]
-pnpm, yarn, and bun all work too:
-
-```bash
-pnpm add -g @juliusbrussee/caveman-code
-yarn global add @juliusbrussee/caveman-code
-bun add -g @juliusbrussee/caveman-code
-```
-:::
-
   </TabItem>
   <TabItem value="homebrew" label="Homebrew">
 
@@ -108,23 +107,7 @@ To roll back to the previous version:
 caveman update --rollback
 ```
 
-## Uninstall
 
-To completely remove Caveman Code from your system:
-
-1. **Remove the application directory**:
-```bash
-rm -rf ~/.cave
-```
-
-2. **Remove the global symlink**:
-Remove the `caveman-code` symlink from your PATH (typically `~/.local/bin/cave` or `/usr/local/bin/cave`).
-
-3. **Optional: Clear memory**:
-Sessions live in `~/.cave/sessions/`. Memory (cavemem) lives in `~/.cavemem/` and is **not** removed by the above — clean it explicitly if needed:
-```bash
-rm -rf ~/.cavemem
-```
 
 ## Headless / CI install
 

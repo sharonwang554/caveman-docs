@@ -2,10 +2,6 @@
 id: api
 title: API
 sidebar_position: 6
----
-
----
-title: API Reference
 description: SDK, JSON-RPC, OpenAPI, and embedding cave in your own apps.
 ---
 
@@ -13,59 +9,50 @@ description: SDK, JSON-RPC, OpenAPI, and embedding cave in your own apps.
 Caveman Code exposes four programmatic surfaces. Pick whichever matches your integration.
 
 
-## 1. Node SDK — `caveman` import
+## 1. Node Agent SDK — `@caveman-ai/agent`
+
+Give every production agent a local catalog-price guard and a token bill.
 
 ```typescript
-import {
-    AuthStorage,
-    createAgentSession,
-    ModelRegistry,
-    SessionManager,
-} from "@juliusbrussee/caveman-code";
+import { agent, auto, run } from "@caveman-ai/agent";
 
-const { session } = await createAgentSession({
-    sessionManager: SessionManager.inMemory(),
-    authStorage: AuthStorage.create(),
-    modelRegistry: ModelRegistry.create(AuthStorage.create()),
+const support = agent({
+  id: "support",
+  instructions: "Answer from policy. Never invent policy.",
+  model: auto(),
 });
 
-const result = await session.prompt("What files are in the current directory?");
+const result = await run(support, "Can I get a refund?");
 console.log(result.text);
+console.log(result.contextBill);
 ```
 
-Useful for: building a custom UI on top of caveman-code's runtime, embedding cave in a larger app, scripted batch runs.
+Useful for: building a custom UI on top of Caveman runtime, embedding Caveman in a larger app, scripted batch runs.
 
-Full TypeScript types are exported from the `caveman` package. See [packages/coding-agent](https://github.com/JuliusBrussee/caveman-cli/tree/main/packages/coding-agent) for source.
+Full TypeScript types are exported from the package. See [packages/agent](https://github.com/JuliusBrussee/caveman/tree/main/packages/agent) for source.
 
-## 2. Daemon SDK — `@juliusbrussee/caveman-sdk`
+## 2. TypeScript SDK — `@caveman-ai/sdk`
+
+Zero-runtime-dependency TypeScript client for Caveman gateway cooperation.
 
 ```bash
-npm install @juliusbrussee/caveman-sdk
+npm install @caveman-ai/sdk
 ```
 
 ```typescript
-import { CaveClient } from "@juliusbrussee/caveman-sdk";
+import { Cave } from "@caveman-ai/sdk";
 
-const client = new CaveClient({
-    host: "localhost:39245",
-    token: process.env.CAVE_TOKEN,
+const cave = new Cave({
+  apiKey: process.env.CAVE_API_KEY!,
+  baseURL: "http://127.0.0.1:8787",
+  agent: "support-agent",
 });
 
-const session = await client.sessions.create({
-    model: "claude-sonnet-4",
-    cwd: "/path/to/repo",
-});
-
-await session.prompt("explain this codebase");
-
-for await (const event of session.events()) {
-    if (event.type === "token") process.stdout.write(event.text);
-    if (event.type === "tool_call") console.error("[tool]", event.name);
-    if (event.type === "done") break;
-}
+const result = await cave.compress("large payload");
+console.log(result.output, result.basis); // basis is inferred
 ```
 
-The `@juliusbrussee/caveman-sdk` package is generated from the daemon's OpenAPI spec. See [Daemon](https://github.com/JuliusBrussee/caveman-code) for the protocol details.
+The `@caveman-ai/sdk` package provides provider clients, `compress`, deferred tool search, reversible checkpoints and artifacts, retry-loop interruption, and runtime policy.
 
 ## 3. JSON-RPC over stdin/stdout
 

@@ -73,7 +73,7 @@ Auto-selected per model based on `proof-bench` ablation results. Override with `
 | `editor-diff` | Editor model emits diff after architect | architect/editor split |
 | `editor-whole` | Editor model emits whole files | architect/editor split |
 
-Caveman Code's defaults are pinned to Aider's published ablation winners and updated when new models ship. See [Models](../tutorials/getting-started.md).
+Caveman Code's defaults are pinned to Aider's published ablation winners and updated when new models ship. See [Models](./models.md).
 
 ## Architect / editor split
 

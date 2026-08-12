@@ -15,7 +15,7 @@ import TabItem from '@theme/TabItem';
 npm install -g @juliusbrussee/caveman-code
 ```
 
-Requires Node.js 20+. Other options (Homebrew, Docker, manual binary) are documented in [Install](./getting-started.md).
+Caveman Code is an AI coding agent that runs directly in your terminal. It edits files, runs commands, and uses tools within a persistent session. If you haven't installed it yet, see the [Installation](./installation.md) guide.
 
 Verify:
 
@@ -89,4 +89,4 @@ Type a prompt and the agent responds. Type `/help` for the full slash-command li
 - Wizard didn't appear — delete `~/.cave/settings.json` and run `caveman` again.
 - Auth fails on Linux — install `libsecret` (`apt install libsecret-1-0` on Debian/Ubuntu) or use API keys via env.
 
-More: [Troubleshooting](../how-to/troubleshooting.md).
+More: [Troubleshooting](../../troubleshooting.md).

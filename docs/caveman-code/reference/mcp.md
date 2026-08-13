@@ -95,6 +95,4 @@ cp .claude.json .mcp.json   # if you had a Claude-only config in the same shape
 
 ## Troubleshooting
 
-- **`caveman mcp doctor`** — pings every configured server, reports timeouts and auth failures.
-- **`caveman mcp logs <server>`** — tails the stderr of a stdio server.
-- **Server crashes loop** — Caveman Code backs off to 1 / 5 / 30 minute retry intervals; you'll see a doctor warning.
+See the [Troubleshooting](../how-to/troubleshooting.md#mcp) page for solutions to common MCP issues (unreachable servers, missing tools, crash loops).

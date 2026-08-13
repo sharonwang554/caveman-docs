@@ -54,7 +54,35 @@ console.log(result.output, result.basis); // basis is inferred
 
 The `@caveman-ai/sdk` package provides provider clients, `compress`, deferred tool search, reversible checkpoints and artifacts, retry-loop interruption, and runtime policy.
 
-## 3. JSON-RPC over stdin/stdout
+## 3. Daemon SDK — `@juliusbrussee/caveman-sdk`
+
+Talk to a running daemon over HTTP / WebSocket. Install:
+
+```bash
+npm install @juliusbrussee/caveman-sdk
+```
+
+```typescript
+import {
+  AuthStorage,
+  createAgentSession,
+  ModelRegistry,
+  SessionManager,
+} from "@juliusbrussee/caveman-code";
+
+const { session } = await createAgentSession({
+  sessionManager: SessionManager.inMemory(),
+  authStorage: AuthStorage.create(),
+  modelRegistry: ModelRegistry.create(AuthStorage.create()),
+});
+
+session.on("message", (msg) => console.log(msg.role, msg.text));
+await session.prompt("Refactor src/auth.ts to use the new TokenStore.");
+```
+
+The daemon SDK wraps the HTTP/WS transport exposed by `caveman serve`. See the [Daemon](daemon.md) page for server setup and the full [API reference](https://github.com/JuliusBrussee/caveman-code/blob/main/docs/api.md).
+
+## 4. JSON-RPC over stdin/stdout
 
 ```bash
 caveman --mode rpc
@@ -83,7 +111,7 @@ Example:
 
 Useful for: integrating cave with editors (LSP-style), building shell scripts that pipe through caveman-code, writing other-language clients.
 
-## 4. Print mode + JSON output
+## 5. Print mode + JSON output
 
 For one-shot integrations:
 

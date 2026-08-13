@@ -110,6 +110,4 @@ If you don't want cavemem, set `memory.provider: files` in `~/.cave/settings.jso
 
 ## Troubleshooting
 
-- **`cavemem: command not found`** — install it (`npm i -g cavemem`) or set `memory.provider: files`.
-- **Memory injection too aggressive** — lower `memory.maxInjectTokens`.
-- **Want to wipe** — `rm -rf ~/.cavemem/`.
+See the [Troubleshooting](../how-to/troubleshooting.md#memory-cavemem) page for solutions to common memory issues (cavemem not found, noisy injection, wiping data).

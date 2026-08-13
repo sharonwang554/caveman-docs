@@ -110,19 +110,7 @@ Use `/caveman [lite|full|ultra|off]` in the TUI to adjust compression aggressive
 
 ## Why Caveman Code
 
-| Capability | Caveman | Claude Code | Codex | Aider | opencode |
-|---|:---:|:---:|:---:|:---:|:---:|
-| 4-layer token compression | ✅ | ❌ | ❌ | repo map only | ❌ |
-| 20+ provider OAuth | ✅ | Anthropic | ChatGPT | API keys | ✅ |
-| Autonomous goal loop | ✅ | ❌ | ❌ | ❌ | ❌ |
-| Autopilot — no permission prompts | ✅ | ❌ | ❌ | ✅ | ❌ |
-| Repo map (PageRank, Aider-style) | ✅ | ❌ | ❌ | ✅ | ❌ |
-| Architect / editor model split | ✅ | ❌ | ❌ | ✅ | ❌ |
-| Session branching + shadow-git checkpoints | ✅ | ❌ | fork only | git only | ❌ |
-| Persistent semantic memory (cavemem) | ✅ | MEMORY.md | ❌ | ❌ | ❌ |
-| MIT open source | ✅ | closed | Apache-2.0 | Apache-2.0 | ✅ |
-
-Full table including Crush: docs/comparison.md.
+For a detailed feature-by-feature comparison with Claude Code, Codex, Aider, Crush, and opencode, see the [Comparison](comparison.md) page.
 
 ---
 

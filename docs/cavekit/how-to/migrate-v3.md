@@ -8,6 +8,8 @@ Honest answer: v4 is not a minor version of v3. It is a different shape
 with the same name. This doc helps you decide whether to move, and if so,
 how.
 
+See also: [UPGRADE.md](https://github.com/JuliusBrussee/cavekit/blob/main/UPGRADE.md) on GitHub for the latest migration notes.
+
 ## SHOULD YOU UPGRADE?
 
 **Stay on v3.1.0 if**:
@@ -39,6 +41,29 @@ code does not rot as fast as it looks like it does.
 | Design system, knowledge graph, Codex review | cut |
 | Parallel wave execution | single-thread |
 | Caveman opt-in for internal chatter | caveman default for spec writes |
+
+### Full v3.1.0 command list (16 slash commands)
+
+| Command | Purpose |
+|---|---|
+| `/ck:sketch` | Draft initial design from a prompt |
+| `/ck:map` | Break sketch into implementation tasks |
+| `/ck:make` | Execute tasks from the map |
+| `/ck:check` | Verify implementation against spec |
+| `/ck:ship` | Final review and prepare for merge |
+| `/ck:review` | Code review pass |
+| `/ck:revise` | Apply review feedback |
+| `/ck:status` | Show current Hunt phase and progress |
+| `/ck:design` | Design system enforcement |
+| `/ck:research` | Research a topic before building |
+| `/ck:init` | Initialize cavekit in a project |
+| `/ck:config` | Edit cavekit configuration |
+| `/ck:resume` | Resume an interrupted Hunt |
+| `/ck:help` | Show command reference |
+| `/ck:team` | Team mode (parallel agents) |
+| `/ck:make-parallel` | Parallel wave execution |
+
+These commands orchestrated **12 named sub-agents** with per-task token budgets, stop-hook state machine, model-tier routing, auto-backpropagation from test failures, tool-result caching, and Karpathy behavioral guardrails.
 
 ## MIGRATION PATH
 
@@ -114,9 +139,14 @@ documentation stays at that tag.
 
 ## ONE-WAY DOOR?
 
-No. You can switch back. `SPEC.md` is plain markdown — nothing stops you
-from re-exporting it into `context/kits/*.md` if you decide v3 was right
-for your project. The work is not trapped.
+No. It is a **two-way door** — `SPEC.md` is plain markdown; nothing traps you in either direction.
+
+:::tip[Honest framing]
+- **Stay on v3.1.0** if your project has active `context/kits/` investment.
+- **Move to v4** if you want fewer moving parts and smaller token bills.
+:::
+
+You can switch back. `SPEC.md` does not lock you in — re-export it into `context/kits/*.md` if you decide v3 was right for your project. The work is not trapped.
 
 ## QUESTIONS
 

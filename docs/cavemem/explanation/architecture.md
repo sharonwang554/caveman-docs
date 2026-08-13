@@ -25,13 +25,42 @@ Cross-agent persistent memory for coding assistants. Hooks fire at session bound
 
 ---
 
-## How it works
+## Architecture
 
 ```text
-session event  →  redact <private>  →  compress  →  SQLite + FTS5
-                                                           ↑
-                                                MCP queries on demand
+IDE ── hooks ──▶ CLI `hook run`
+                     │
+                     ▼
+              MemoryStore (core)
+            ┌──────────┴──────────┐
+            ▼                     ▼
+       compress (prose)      Storage (SQLite + FTS5 + embeddings)
+                                   ▲
+                                   │
+IDE ── MCP stdio ──▶ mcp-server ───┘
+Browser ── HTTP ──▶ worker (Hono) ─┘
 ```
+
+### Write path
+
+1. Hook receives input from IDE (session start, tool use, prompt, stop).
+2. CLI invokes `runHook(name, input)`.
+3. `redactPrivate` strips `<private>…</private>` content.
+4. `compress` transforms prose; technical tokens (code, paths, URLs, identifiers, version numbers) pass through byte-for-byte.
+5. `Storage.insertObservation` commits to SQLite; FTS5 is updated via triggers.
+6. Embedding, when enabled, is computed out-of-band by the worker.
+
+### Read path
+
+- **Model (MCP)**: compact search → `get_observations(expand: true)` returns readable text.
+- **Human (viewer)**: worker serves expanded text over HTTP on `127.0.0.1:37777`.
+
+### Invariants
+
+- Only `MemoryStore` may write observations.
+- Only `@cavemem/storage` may open the database.
+- Hooks do no I/O beyond the `MemoryStore` call.
+- Worker binds to loopback only.
 
 What compression looks like in practice:
 
@@ -41,4 +70,4 @@ Stored: "auth mw throws 401 @ session token expires. add refresh path."
 Viewed: "The auth middleware throws a 401 when session token expires. Add refresh path."
 ```
 
-Code blocks, URLs, paths, identifiers, and version numbers are never touched. Hook handlers complete in under 150ms. Full bodies fetched on demand via `get_observations`.
+Hook handlers complete in under 150ms. Full bodies fetched on demand via `get_observations`.

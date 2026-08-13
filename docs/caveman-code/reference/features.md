@@ -1,10 +1,8 @@
 ---
 id: features
-title: Features & Architecture
+title: Features
 sidebar_position: 3
 ---
-
-## Features
 
 | | Feature | Trigger |
 |---|---|---|

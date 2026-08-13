@@ -1,6 +1,7 @@
 ---
 title: Quickstart
 description: Install Caveman Code and run your first prompt in under 30 seconds.
+sidebar_position: 1
 ---
 
 
@@ -89,4 +90,4 @@ Type a prompt and the agent responds. Type `/help` for the full slash-command li
 - Wizard didn't appear — delete `~/.cave/settings.json` and run `caveman` again.
 - Auth fails on Linux — install `libsecret` (`apt install libsecret-1-0` on Debian/Ubuntu) or use API keys via env.
 
-More: [Troubleshooting](../../troubleshooting.md).
+More: [Troubleshooting](../how-to/troubleshooting.md).

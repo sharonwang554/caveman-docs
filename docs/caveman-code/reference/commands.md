@@ -1,10 +1,13 @@
 ---
 id: commands
-title: Commands
+title: Slash Commands
 sidebar_position: 2
 description: Built-in slash commands and how to author your own as Markdown files.
 ---
 
+:::info
+Slash commands are **in-TUI commands** — type `/` inside a Caveman Code session to use them. For terminal flags and subcommands you run _before_ entering the TUI, see [CLI & Subcommands](cli).
+:::
 
 Inside the TUI, type `/` to open the command palette. Caveman Code ships 10 built-in commands and reads user-authored markdown commands from `~/.cave/commands/` and project-local `.cave/commands/`.
 

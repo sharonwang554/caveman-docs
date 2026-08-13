@@ -1,6 +1,6 @@
 ---
 id: architecture
-title: How it Works
+title: Architecture & Benchmarks
 sidebar_position: 1
 ---
 

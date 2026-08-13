@@ -1,7 +1,8 @@
 ---
-title: Global Troubleshooting
-description: Fixes for common issues across the Caveman ecosystem.
-id: troubleshooting
+title: Troubleshooting
+description: Fixes for common issues across Caveman Code and the Caveman ecosystem.
+id: caveman-code-troubleshooting
+sidebar_position: 100
 ---
 
 When something breaks, start here. If your issue isn't covered, open a GitHub issue with `caveman doctor` output.

@@ -207,7 +207,7 @@ cat "${CLAUDE_CONFIG_DIR:-$HOME/.claude}/.caveman-active"
 # expected output: full
 ```
 
-If it's missing or empty, the SessionStart hook didn't fire. Check the [Troubleshooting](../../troubleshooting.md) guide for help.
+If it's missing or empty, the SessionStart hook didn't fire. Check the [Troubleshooting](../../caveman-code/how-to/troubleshooting.md) guide for help.
 
 Statusline should show `[CAVEMAN]` (orange) at the bottom of Claude Code. After your first `/caveman-stats` run it appends a savings counter like `[CAVEMAN] ⛏ 12.4k`.
 

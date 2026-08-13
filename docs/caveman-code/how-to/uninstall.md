@@ -4,8 +4,6 @@ title: Uninstall
 sidebar_position: 99
 ---
 
-## Uninstall
-
 To completely remove Caveman Code from your system:
 
 1. **Remove the application directory**:

@@ -4,6 +4,10 @@ title: CLI & Subcommands
 sidebar_position: 1
 ---
 
+:::info
+These are **terminal commands and flags** you pass when launching Caveman Code from your shell. For commands used _inside_ an active TUI session, see [Slash Commands](commands).
+:::
+
 ### ⚙️ CLI flags
 | Flag | Description |
 |---|---|

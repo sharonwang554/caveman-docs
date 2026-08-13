@@ -1,7 +1,7 @@
 ---
 id: installation
 title: Installation
-sidebar_position: 1
+sidebar_position: 2
 ---
 
 npm is the primary install path. Native binaries via Homebrew / Docker / direct download are also available.
@@ -12,32 +12,33 @@ import TabItem from '@theme/TabItem';
 <Tabs>
   <TabItem value="npm" label="npm" default>
 
-## Canonical (npm)
-
 Requires Node.js 20+:
 
 ```bash
-# npm
 npm install -g @juliusbrussee/caveman-code
+```
 
-# bun
+  </TabItem>
+  <TabItem value="bun" label="bun">
+
+```bash
 bun add -g @juliusbrussee/caveman-code
+```
 
-# yarn
+  </TabItem>
+  <TabItem value="yarn" label="yarn">
+
+```bash
 yarn global add @juliusbrussee/caveman-code
+```
 
-# pnpm
+  </TabItem>
+  <TabItem value="pnpm" label="pnpm">
+
+```bash
 pnpm add -g @juliusbrussee/caveman-code
 ```
 
-The package installs two binaries — `caveman` (primary) and `caveman-code` (alias). Either works.
-
-```bash
-caveman --version
-caveman
-```
-
-Works on macOS, Linux, Windows (PowerShell + WSL). Same package on every platform.
   </TabItem>
   <TabItem value="homebrew" label="Homebrew">
 
@@ -70,6 +71,8 @@ Works on macOS, Linux, Windows (PowerShell + WSL). Same package on every platfor
 
   </TabItem>
 </Tabs>
+
+All package managers install two binaries — `caveman` (primary) and `caveman-code` (alias). Either works. Supported on macOS, Linux, and Windows (PowerShell + WSL).
 
 ## Verify
 
@@ -115,4 +118,4 @@ caveman update --rollback
 npm install -g @juliusbrussee/caveman-code@0.65.2   # pin a version for reproducible CI
 ```
 
-See [`caveman exec` mode](https://github.com/JuliusBrussee/caveman-code) for using caveman inside GitHub Actions.
+See [`caveman exec` mode](../how-to/cookbook.md#caveman-exec-in-github-actions) for using caveman inside GitHub Actions.

@@ -95,7 +95,7 @@ const config: Config = {
             },
             {
               label: 'Caveman Code',
-              to: '/docs/caveman-code/tutorials/getting-started',
+              to: '/docs/caveman-code/tutorials/installation',
             },
             {
               label: 'CaveGemma',
@@ -131,7 +131,7 @@ const config: Config = {
             },
             {
               label: 'Caveman Code',
-              to: '/docs/caveman-code/tutorials/getting-started',
+              to: '/docs/caveman-code/tutorials/installation',
             },
             {
               label: 'CaveGemma',

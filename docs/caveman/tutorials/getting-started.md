@@ -11,9 +11,13 @@ import TabItem from '@theme/TabItem';
 
 ## Installation
 
-One install. Works for every AI coding agent on your machine.
+Caveman is three separate installs. Each works alone. Not sure? Start with the skill — it needs no account, proxy, Go toolchain, or code changes.
 
-If just want it to work, run the one-liner. If want to know what gets touched, scroll down.
+| Layer | What you get |
+|---|---|
+| **The Skill (MIT)** | Shorter answers. Install once, every supported agent on your machine gets caveman-speak. |
+| **Caveman Proxy** | Shorter *inputs* too. Wraps your existing agent, compresses what the model reads. |
+| **Agent SDK** | A new TypeScript agent on the native Caveman runtime. |
 
 ## Caveman Proxy
 
@@ -40,22 +44,61 @@ caveman wrap --off codex        # byte-safe pass-through metering only
 caveman wrap --pixel claude     # lossy text → PNG pixel mode (model-gated)
 ```
 
+| Mode | What it does | Bytes the model sees |
+|---|---|---|
+| default stack *(`caveman claude`)* | Structural compression routed per content type, plus uniform JSON tool results re-encoded as TOON only when measured smaller. | Changed, recoverable |
+| `--off` | Counts tokens and cost. Changes nothing. | **Byte-identical** |
+| `--pixel` | Dense text slabs rendered to PNG pages for vision models. | Changed, recoverable |
+
+### Caveman Browse
+
+Included in `caveman setup --install` (needs Chrome). A local Chrome driver your agent reaches as MCP tools:
+
+```bash
+caveman browse <url>
+```
+
+### Agent SDK
+
+A TypeScript agent project on the native Caveman runtime. Client SDKs available for both Node and Python:
+
+```bash
+npm create @caveman-ai/agent@latest my-agent
+```
+
+```bash
+npm i @caveman-ai/sdk      # TypeScript
+pip install caveman-sdk     # Python
+```
+
+### Keep your agent
+
+Caveman works underneath the stack you already use. Adopt only the layer you need.
+
+| Need | Smallest Caveman path |
+|---|---|
+| Shorter, cleaner answers | Install the MIT skill below. No Caveman account, proxy, or code changes. |
+| Less input in Claude Code, Codex, Gemini, Aider, opencode, Hermes, or OpenClaw | `npm install -g @caveman-ai/cli`, then wrap your existing agent with one `caveman` command. |
+| Vercel AI SDK | Point the OpenAI-compatible or Anthropic provider `baseURL` at Caveman. See the [Vercel AI SDK recipe](https://github.com/JuliusBrussee/caveman/blob/main/integrations/recipes/vercel-ai-sdk.json). |
+| LangChain, LiteLLM, OpenAI Agents, CrewAI, PydanticAI | Point the existing provider client at Caveman. See [`integrations/recipes/`](https://github.com/JuliusBrussee/caveman/tree/main/integrations/recipes/). |
+| A new TypeScript agent | Run `npm create @caveman-ai/agent@latest my-agent`, powered by [`@caveman-ai/agent`](https://github.com/JuliusBrussee/caveman/tree/main/packages/agent). |
+
 ## One-liner
 
 <Tabs>
   <TabItem value="mac" label="macOS / Linux">
     ```bash
-    curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash
+    curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/v1.10.0/install.sh | bash
     ```
   </TabItem>
   <TabItem value="win" label="Windows (PowerShell)">
     ```powershell
-    irm https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.ps1 | iex
+    irm https://raw.githubusercontent.com/JuliusBrussee/caveman/v1.10.0/install.ps1 | iex
     ```
   </TabItem>
 </Tabs>
 
-> Piping a script straight into a shell runs it sight-unseen. If you'd rather read it first, download then run: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh -o install.sh` (review it) `&& bash install.sh`. The installer downloads hook files from a pinned release tag and verifies them against a committed SHA-256 manifest before writing.
+> Piping a script straight into a shell runs it sight-unseen. If you'd rather read it first, download then run: `curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/v1.10.0/install.sh -o install.sh` (review it) `&& bash install.sh`. The installer downloads hook files from a pinned release tag and verifies them against a committed SHA-256 manifest before writing.
 
 What it does:
 
@@ -68,7 +111,7 @@ What it does:
 Want to preview before installing? Use `--dry-run`:
 
 ```bash
-curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/main/install.sh | bash -s -- --dry-run
+curl -fsSL https://raw.githubusercontent.com/JuliusBrussee/caveman/v1.10.0/install.sh | bash -s -- --dry-run
 ```
 
 ## Per-agent install

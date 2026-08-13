@@ -8,9 +8,9 @@ If you want to install for one specific agent (or want to know exactly what comm
 |---|---|:-:|
 | **Claude Code** | `claude plugin marketplace add JuliusBrussee/caveman && claude plugin install caveman@caveman` | Yes |
 | **Gemini CLI** | `gemini extensions install https://github.com/JuliusBrussee/caveman --consent` | Yes |
-| **opencode** | `node cli/install.js --only opencode` *(or `npx -y github:JuliusBrussee/caveman -- --only opencode`)* | Yes (plugin + AGENTS.md) |
+| **opencode** | `node bin/install.js --only opencode` *(or `npx -y github:JuliusBrussee/caveman -- --only opencode`)* | Yes (plugin + AGENTS.md) |
 | **OpenClaw** | `npx -y github:JuliusBrussee/caveman -- --only openclaw` | Yes (workspace skill + SOUL.md) |
-| **Hermes Agent** | `npx -y github:JuliusBrussee/caveman -- --only hermes` *(or `node cli/install.js --only hermes` from a clone)* | Yes (native skills, enabled on load) |
+| **Hermes Agent** | `npx -y github:JuliusBrussee/caveman -- --only hermes` *(or `node bin/install.js --only hermes` from a clone)* | Yes (native skills, enabled on load) |
 | **Codex CLI** | `npx skills add JuliusBrussee/caveman -a codex` | Per-session: `/caveman` |
 | **Cursor** | `npx skills add JuliusBrussee/caveman -a cursor` | Per-session by default; `--with-init` for an always-on rule file |
 | **Windsurf** | `npx skills add JuliusBrussee/caveman -a windsurf` | Per-session by default; `--with-init` for an always-on rule file |
@@ -67,7 +67,7 @@ import TabItem from '@theme/TabItem';
   </TabItem>
   <TabItem value="node" label="Node (local clone)">
     ```bash
-    node cli/install.js --list
+    node bin/install.js --list
     ```
   </TabItem>
   <TabItem value="npx" label="No clone (npx)">
@@ -77,4 +77,4 @@ import TabItem from '@theme/TabItem';
   </TabItem>
 </Tabs>
 
-Each row prints the agent id, profile slug (where applicable), and whether it was auto-detected on your machine. The full agent matrix (with detection rules) is also defined in `cli/install.js` under the `PROVIDERS` array.
+Each row prints the agent id, profile slug (where applicable), and whether it was auto-detected on your machine. The full agent matrix (with detection rules) is also defined in `bin/install.js` under the `PROVIDERS` array.

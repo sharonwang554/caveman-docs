@@ -15,16 +15,16 @@ Caveman is a system-prompt skill. It makes the model **write shorter output**. T
 
 | What | Number | How measured | Source |
 |---|---|---|---|
-| Output reduction vs default verbose replies | **65% average** (range 22–87%) | Real Claude API token counts, 10 prompts | [`benchmarks/`](https://github.com/JuliusBrussee/caveman) |
+| Output reduction vs default verbose replies | **Not published** | Harness exists, but repository has no committed reviewed raw result | [`benchmarks/`](https://github.com/JuliusBrussee/caveman/tree/main/benchmarks/) |
 | Input reduction from the skill | **0%** | It's an output-style instruction | — |
 | Input cost the skill *adds* | **~1–1.5k tokens per turn** | SKILL.md rules (~5 KB) injected into context, plus skill-list entries | [`skills/caveman/SKILL.md`](https://github.com/JuliusBrussee/caveman/blob/main/skills/caveman/SKILL.md) |
 | `/caveman-compress` on memory files | ~46% average input reduction, per session, for those files only | Real files, token counts in README table | [README](/docs/caveman/explanation/architecture) |
 
-These figures are output tokens only — the skill does not compress your input, your context, your files, or the model's thinking tokens. The full eval harness and its correction history are documented in [`evals/README.md`](https://github.com/JuliusBrussee/caveman/tree/main/evals).
+Token-count runs measure output length only. They do not prove semantic or technical equivalence. Publish a reduction only with committed raw pairs and separate quality review. The full eval harness and its correction history are documented in [`evals/README.md`](https://github.com/JuliusBrussee/caveman/tree/main/evals).
 
 ## When caveman wins
 
-- **Long chatty outputs.** Explanations, architecture discussions, code review, docs, debugging walkthroughs — anywhere the model would write 1k+ output tokens per reply. This is where the 50–87% cuts happen.
+- **Long chatty outputs.** Explanations, architecture discussions, code review, docs, and debugging walkthroughs give a terse style more removable prose. Measure your own A/B; no aggregate reduction is currently published.
 - **Long sessions with verbose agents.** The per-reply savings compound; the fixed ~1–1.5k/turn rule cost stays flat.
 - **Reading speed.** Shorter replies finish sooner and you read them faster. For many users this, not cost, is the real win.
 

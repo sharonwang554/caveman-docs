@@ -41,4 +41,4 @@ In a pinned 54-run Claude Code benchmark, Caveman-wrapped Claude Code used **33.
 
 HTML regressed because no compression transform applied while full Caveman skill overhead remained counted. Unsupported and no-op inputs stay in the aggregate.
 
-Claim basis: `benchmark_counterfactual`. This is controlled benchmark evidence, not production traffic or verified savings. Full method: [WRAP-BENCHMARK.md](https://github.com/JuliusBrussee/caveman/blob/main/docs/WRAP-BENCHMARK.md).
+Claim basis: `benchmark_counterfactual`. This is controlled benchmark evidence, not production traffic or verified savings. Full method: [Wrap Benchmark](./wrap-benchmark.md).

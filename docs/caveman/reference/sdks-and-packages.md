@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # SDKs and public packages
 
 Repository contains standalone packages for application integration, agent
@@ -128,7 +132,7 @@ catalog outputs for local estimates. Unsupported model returns zero price plus
 an `unpriced` marker; catalog does not represent invoice data.
 
 Catalog updates need source date, provider unit semantics, generated-artifact
-refresh, and tests. See [Accounting and evidence](accounting-and-evidence.md).
+refresh, and tests. See [Accounting and evidence](../explanation/accounting-and-evidence.md).
 
 ## Benchmark tooling
 
@@ -140,5 +144,4 @@ counter implementation, not a general savings claim.
 
 Registry packages release independently through scoped workflow inputs, while
 native binaries use a separate signed process. See
-[`PACKAGE_RELEASES.md`](../PACKAGE_RELEASES.md) and [Install and
-update](install-and-update.md).
+[`PACKAGE_RELEASES.md`](https://github.com/JuliusBrussee/caveman/blob/main/docs/PACKAGE_RELEASES.md) and [Install and update](../how-to/install-and-update.md).

@@ -70,6 +70,13 @@ const config: Config = {
   ],
 
   themeConfig: {
+    announcementBar: {
+      id: 'outdated_warning_v2',
+      content: 'This documentation portal is generated based on commit <a target="_blank" rel="noopener noreferrer" href="https://github.com/JuliusBrussee/caveman/commit/99a9aa2f5a45097fc3563febea7d0baf64407441">99a9aa2</a> of the original repo on August 19, 2026. Please refer to the <a target="_blank" rel="noopener noreferrer" href="https://github.com/JuliusBrussee/caveman">original repo</a> for the latest updates.',
+      backgroundColor: '#fff8c5',
+      textColor: '#24292f',
+      isCloseable: true,
+    },
     // Replace with your project's social card
     image: 'img/caveman-logo-banner.png',
     colorMode: {
@@ -84,7 +91,7 @@ const config: Config = {
       items: [
         {
           type: 'doc',
-          docId: 'caveman/tutorials/install-and-update',
+          docId: 'caveman/index',
           position: 'left',
           label: 'Docs',
         },

@@ -3,11 +3,15 @@
 > Official documentation for the Caveman ecosystem.
 
 
+> Note: This documentation portal is generated based on commit 99a9aa2f5a45097fc3563febea7d0baf64407441 of the original repo on August 19, 2026. Please refer to the original repo (https://github.com/JuliusBrussee/caveman) for the latest updates.
+
+
 ## Caveman
 > Caveman - Original skill making agents read and write less.
 
-- [Install and update](/docs/caveman/tutorials/install-and-update)
+- [Caveman technical documentation](/docs/caveman/)
 - [Extending Caveman](/docs/caveman/how-to/extending)
+- [Install and update](/docs/caveman/how-to/install-and-update)
 - [CLI reference](/docs/caveman/reference/cli-reference)
 - [Configuration](/docs/caveman/reference/configuration)
 - [Exploration and delegation](/docs/caveman/reference/exploration-and-delegation)

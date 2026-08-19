@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Compression Engine
 
 Caveman Engine is a local Go library and command-line runtime for reducing
@@ -7,7 +11,7 @@ the result passes size and safety checks.
 
 Engine source is licensed under the Business Source License 1.1. Interfaces and
 adoption packages use their package-level licenses. See
-[`LICENSING.md`](../../LICENSING.md).
+[`LICENSING.md`](https://github.com/JuliusBrussee/caveman/blob/main/LICENSING.md).
 
 ## Library calls
 

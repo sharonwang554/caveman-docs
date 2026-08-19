@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # TOON and pixel context
 
 TOON and pixel are optional context encodings. Both change model-visible input,

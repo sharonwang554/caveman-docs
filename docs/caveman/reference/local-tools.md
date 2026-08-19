@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Local tools
 
 Caveman ships local tools for recovery, memory, browser context, and large

@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Configuration
 
 Caveman has two configuration layers:
@@ -130,7 +134,7 @@ compat:
 ```
 
 Self-hosted private or loopback upstreams require an explicit
-`CAVE_SSRF_ALLOWLIST` entry. See [Security and privacy](security-and-privacy.md).
+`CAVE_SSRF_ALLOWLIST` entry. See [Security and privacy](../explanation/security-and-privacy.md).
 
 ## Provider credentials
 

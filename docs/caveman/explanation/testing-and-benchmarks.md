@@ -1,3 +1,7 @@
+---
+sidebar_position: 11
+---
+
 # Testing and benchmarks
 
 Repository uses language-specific tests plus cross-package verification. Run
@@ -72,7 +76,7 @@ token counter, and any invariant checks.
 ### Browser fixtures
 
 Browser benchmark measures accessibility-tree capture, query focus, compression,
-and recovery on recorded pages. See [`browse/BENCHMARK.md`](../../browse/BENCHMARK.md).
+and recovery on recorded pages. See [`browse/BENCHMARK.md`](https://github.com/JuliusBrussee/caveman/blob/main/browse/BENCHMARK.md).
 
 ### Cache corpus
 
@@ -87,7 +91,7 @@ counterfactual results apply to exact fixture, assembly method and token counter
 ### Wrap report
 
 Published wrap benchmark documents one recorded comparison and provenance. See
-[`WRAP-BENCHMARK.md`](../WRAP-BENCHMARK.md) for reproduction availability and
+[`WRAP-BENCHMARK.md`](https://github.com/JuliusBrussee/caveman/blob/main/docs/WRAP-BENCHMARK.md) for reproduction availability and
 claim limits.
 
 ## Writing a benchmark report

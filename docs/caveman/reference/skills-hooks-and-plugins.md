@@ -1,3 +1,7 @@
+---
+sidebar_position: 4
+---
+
 # Skills, hooks, and plugins
 
 Caveman integrates through response skills, lifecycle hooks, and agent-specific
@@ -21,7 +25,7 @@ Preview remote skill content before installation when source is unfamiliar.
 
 Response skill affects generated prose. It does not compress request context or
 prove a token-reduction percentage. See
-[`HONEST-NUMBERS.md`](../HONEST-NUMBERS.md).
+[`HONEST-NUMBERS.md`](https://github.com/JuliusBrussee/caveman/blob/main/docs/HONEST-NUMBERS.md).
 
 ## Focused skills
 
@@ -62,7 +66,7 @@ Hook state uses atomic writes and restrictive file permissions. Symlink checks
 prevent a project-controlled link from redirecting trusted state writes.
 
 Install supported native hooks with setup commands documented in
-[Agent wrapping](agent-wrapping.md).
+[Agent wrapping](../explanation/agent-wrapping.md).
 
 ## Native plugins
 

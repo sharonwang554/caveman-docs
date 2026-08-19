@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # CLI reference
 
 `caveman` and `cave` invoke the same command-line program. The short alias is
@@ -139,7 +143,7 @@ LiteLLM, CrewAI, Pydantic AI, OpenAI Agents SDK, and direct `curl` use.
 - `evals` runs evaluation-related commands available in the installed build.
 
 Local observations are not verified savings. See
-[Accounting and evidence](accounting-and-evidence.md).
+[Accounting and evidence](../explanation/accounting-and-evidence.md).
 
 ### `config`
 

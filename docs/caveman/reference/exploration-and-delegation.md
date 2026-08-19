@@ -1,3 +1,7 @@
+---
+sidebar_position: 5
+---
+
 # Exploration and delegation
 
 Broad repository search can consume main agent context before editing begins.

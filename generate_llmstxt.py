@@ -36,6 +36,7 @@ def extract_title_desc(filepath):
 llms_content = []
 llms_content.append("# Caveman Ecosystem Documentation\n")
 llms_content.append("> Official documentation for the Caveman ecosystem.\n\n")
+llms_content.append("> Note: This documentation portal is generated based on commit 99a9aa2f5a45097fc3563febea7d0baf64407441 of the original repo on August 19, 2026. Please refer to the original repo (https://github.com/JuliusBrussee/caveman) for the latest updates.\n\n")
 
 for suite in order:
     llms_content.append(f"## {suite.replace('-', ' ').title()}")

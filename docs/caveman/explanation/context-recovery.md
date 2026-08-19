@@ -1,3 +1,7 @@
+---
+sidebar_position: 7
+---
+
 # Context recovery
 
 Caveman Context Recovery, abbreviated CCR, stores exact original bytes behind a

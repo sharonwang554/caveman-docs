@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Install and update
 
 Caveman ships a response-skill installer and a separate local-runtime CLI.
@@ -10,7 +14,7 @@ Choose either one or install both.
 | Skill installer | Node.js 18 |
 | `@caveman-ai/cli` | Node.js 22.13 |
 | `@caveman-ai/agent` | Node.js 22.19 |
-| Source build | Go version in [`go.mod`](../../go.mod), Node.js, and pnpm |
+| Source build | Go version in [`go.mod`](https://github.com/JuliusBrussee/caveman/blob/main/go.mod), Node.js, and pnpm |
 | Browser extension development | Node.js plus pinned Playwright dependencies |
 
 Prebuilt companion binaries cover macOS, Linux, and Windows on amd64 and arm64.
@@ -56,7 +60,7 @@ Useful installer controls:
 | `--non-interactive` | Disable prompts |
 | `--config-dir <path>` | Select Claude Code hook/config directory |
 
-Full command reference lives in [`INSTALL.md`](../../INSTALL.md).
+Full command reference lives in [`INSTALL.md`](https://github.com/JuliusBrussee/caveman/blob/main/INSTALL.md).
 
 ## Local runtime install
 
@@ -169,7 +173,7 @@ npm uninstall -g @caveman-ai/cli
 ```
 
 These commands do not delete local usage, CCR, or account state. Review
-[`SECURITY.md`](../../SECURITY.md#local-storage) before deleting
+[`SECURITY.md`](https://github.com/JuliusBrussee/caveman/blob/main/SECURITY.md#local-storage) before deleting
 `~/.caveman` or `~/.caveman-cloud`.
 
 ## Windows notes
@@ -177,5 +181,5 @@ These commands do not delete local usage, CCR, or account state. Review
 PowerShell 5.1+ can run root installer shim. Skills CLI may need
 `--copy` when symlink creation is unavailable. Native Windows supports local
 runtime binaries; Agent SDK tools requiring OS-level network isolation should
-run in WSL2. See [Windows fallback](../install-windows.md) for manual plugin
+run in WSL2. See [Windows fallback](https://github.com/JuliusBrussee/caveman/blob/main/docs/install-windows.md) for manual plugin
 recovery.

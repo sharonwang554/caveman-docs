@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Extending Caveman
 
 Extensions should preserve original input on uncertainty, keep recovery exact,
@@ -113,5 +117,5 @@ Update:
 - security or evidence page when trust boundary changes;
 - changelog or release note according to package process.
 
-Run commands in [Testing and benchmarks](testing-and-benchmarks.md). Report
+Run commands in [Testing and benchmarks](../explanation/testing-and-benchmarks.md). Report
 targeted proof separately from gates not run.

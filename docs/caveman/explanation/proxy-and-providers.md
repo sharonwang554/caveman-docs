@@ -1,3 +1,7 @@
+---
+sidebar_position: 8
+---
+
 # Local proxy and providers
 
 Local proxy presents provider-compatible HTTP routes on loopback, applies

@@ -1,3 +1,7 @@
+---
+sidebar_position: 1
+---
+
 # Product model
 
 Caveman has two local adoption paths. Install the response skill when you want
@@ -13,18 +17,18 @@ independently.
 | CLI | Install components, launch agents, expose local commands, and connect optional hosted commands | No for local commands | MIT |
 | Engine | Detect payload shape, apply a matching transform, count estimated tokens, and store recoveries | No | BSL 1.1 |
 | Local proxy | Route provider requests through Engine and write local usage rows | No | BSL 1.1 |
-| MCP, memory, browser, and shrink binaries | Expose recovery and specialized local context tools | No | Mixed; see [licensing](../../LICENSING.md) |
+| MCP, memory, browser, and shrink binaries | Expose recovery and specialized local context tools | No | Mixed; see [licensing](https://github.com/JuliusBrussee/caveman/blob/main/LICENSING.md) |
 | SDKs and Agent SDK | Add tracing, context assembly, tools, evals, and provider routing to application code | Local use needs no account | MIT |
 | Connected commands | Access an authenticated hosted project | Yes | CLI remains MIT |
 
 Repository license boundaries are defined in
-[`LICENSING.md`](../../LICENSING.md). BSL code is source-available and has an
+[`LICENSING.md`](https://github.com/JuliusBrussee/caveman/blob/main/LICENSING.md). BSL code is source-available and has an
 Additional Use Grant for first-party self-hosted production. Read the license
 before offering Engine-linked functionality to third parties.
 
 ## Response compression
 
-The [`caveman` skill](../../skills/caveman/SKILL.md) changes response style.
+The [`caveman` skill](https://github.com/JuliusBrussee/caveman/blob/main/skills/caveman/SKILL.md) changes response style.
 It removes filler, shortens common phrasing, and permits fragments at stronger
 levels. Code blocks, exact errors, commands, identifiers, and technical detail
 stay intact.
@@ -32,7 +36,7 @@ stay intact.
 This path affects model output. Its instruction text also consumes input
 tokens. A short task can cost more total tokens with the skill enabled. The
 correct comparison is provider-reported usage for equivalent tasks; see
-[`HONEST-NUMBERS.md`](../HONEST-NUMBERS.md).
+[`HONEST-NUMBERS.md`](https://github.com/JuliusBrussee/caveman/blob/main/docs/HONEST-NUMBERS.md).
 
 ## Context compression
 
@@ -82,7 +86,7 @@ caveman help cloud   # authenticated commands
 Managed traffic has a different data flow from local wrap. Local wrap sends
 request content to the selected model provider and keeps CCR on disk. A hosted
 gateway necessarily receives request and response content while proxying it.
-[`SECURITY.md`](../../SECURITY.md) lists both flows.
+[`SECURITY.md`](https://github.com/JuliusBrussee/caveman/blob/main/SECURITY.md) lists both flows.
 
 ## Evidence labels
 

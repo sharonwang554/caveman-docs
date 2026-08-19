@@ -1,3 +1,7 @@
+---
+sidebar_position: 9
+---
+
 # Security and privacy
 
 Caveman local runtime processes prompts, tool output, source code, provider

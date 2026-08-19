@@ -1,3 +1,7 @@
+---
+sidebar_position: 10
+---
+
 # Accounting and evidence
 
 Caveman labels numbers by how they were produced. Token estimate and provider
@@ -45,7 +49,7 @@ adjustments.
 
 Unknown provider or model prices produce zero plus `unpriced`. Zero prevents
 invented cost from entering totals; `unpriced` prevents zero from being mistaken
-for free use.
+for cost-free use.
 
 ## Inferred headroom
 
@@ -98,5 +102,5 @@ Before publishing a number:
 6. avoid extrapolating across model, provider, task, or time;
 7. publish zero or `unpriced` when support is absent.
 
-See [`HONEST-NUMBERS.md`](../HONEST-NUMBERS.md) for currently supported public
+See [`HONEST-NUMBERS.md`](https://github.com/JuliusBrussee/caveman/blob/main/docs/HONEST-NUMBERS.md) for currently supported public
 claims.

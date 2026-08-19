@@ -1,3 +1,7 @@
+---
+sidebar_position: 2
+---
+
 # Architecture
 
 Caveman's local runtime is a set of small processes joined by documented files,
@@ -57,7 +61,7 @@ Default local state lives under `~/.caveman`:
 
 Connected CLI state uses `~/.caveman-cloud`. Credentials use the macOS
 Keychain when available, with an owner-only file fallback. Configuration stores
-pointers and non-secret settings. See [security and privacy](./security-and-privacy.md)
+pointers and non-secret settings. See [security and privacy](security-and-privacy.md)
 for deletion and permission details.
 
 ## Engine boundary
@@ -121,12 +125,12 @@ does not become a synthetic success or a client-side parse error.
 
 ## Source map
 
-- Engine: [`engine/`](../../engine/)
-- Local proxy and adapters: [`proxy/`](../../proxy/)
-- CLI: [`packages/cli/`](../../packages/cli/)
-- Recovery MCP: [`mcp/`](../../mcp/)
-- Memory: [`mem/`](../../mem/)
-- Browser: [`browse/`](../../browse/)
-- Tool-catalog shrinker: [`shrink/`](../../shrink/)
-- Agent profiles: [`agents/profiles/`](../../agents/profiles/)
-- Public schemas: [`packages/shared/contracts/`](../../packages/shared/contracts/)
+- Engine: [`engine/`](https://github.com/JuliusBrussee/caveman/blob/main/engine)
+- Local proxy and adapters: [`proxy/`](https://github.com/JuliusBrussee/caveman/blob/main/proxy)
+- CLI: [`packages/cli/`](https://github.com/JuliusBrussee/caveman/blob/main/packages/cli)
+- Recovery MCP: [`mcp/`](https://github.com/JuliusBrussee/caveman/blob/main/mcp)
+- Memory: [`mem/`](https://github.com/JuliusBrussee/caveman/blob/main/mem)
+- Browser: [`browse/`](https://github.com/JuliusBrussee/caveman/blob/main/browse)
+- Tool-catalog shrinker: [`shrink/`](https://github.com/JuliusBrussee/caveman/blob/main/shrink)
+- Agent profiles: [`agents/profiles/`](https://github.com/JuliusBrussee/caveman/blob/main/agents/profiles)
+- Public schemas: [`packages/shared/contracts/`](https://github.com/JuliusBrussee/caveman/blob/main/packages/shared/contracts)

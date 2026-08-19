@@ -1,3 +1,7 @@
+---
+sidebar_position: 3
+---
+
 # Agent wrapping
 
 Agent wrapping starts an existing coding agent with local Caveman endpoints,
@@ -137,7 +141,7 @@ recovery tools, or compact command output. An installed skill does not prove
 that request compression is active, and proxy traffic does not prove that a
 response skill is active.
 
-See [Skills, hooks, and plugins](skills-hooks-and-plugins.md) for lifecycle and
+See [Skills, hooks, and plugins](../reference/skills-hooks-and-plugins.md) for lifecycle and
 trust boundaries.
 
 ## Troubleshooting

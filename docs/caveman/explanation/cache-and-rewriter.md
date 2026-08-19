@@ -1,3 +1,7 @@
+---
+sidebar_position: 6
+---
+
 # Cache planner and trajectory rewriter
 
 Caveman includes two independent optimization systems:

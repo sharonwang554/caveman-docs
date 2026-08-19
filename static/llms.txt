@@ -9,25 +9,30 @@
 ## Caveman
 > Caveman - Original skill making agents read and write less.
 
-- [Caveman technical documentation](/docs/caveman/)
-- [Extending Caveman](/docs/caveman/how-to/extending)
-- [Install and update](/docs/caveman/how-to/install-and-update)
-- [CLI reference](/docs/caveman/reference/cli-reference)
-- [Configuration](/docs/caveman/reference/configuration)
-- [Exploration and delegation](/docs/caveman/reference/exploration-and-delegation)
-- [Glossary](/docs/caveman/reference/glossary)
-- [Local tools](/docs/caveman/reference/local-tools)
-- [SDKs and public packages](/docs/caveman/reference/sdks-and-packages)
-- [Skills, hooks, and plugins](/docs/caveman/reference/skills-hooks-and-plugins)
-- [Accounting and evidence](/docs/caveman/explanation/accounting-and-evidence)
-- [Agent wrapping](/docs/caveman/explanation/agent-wrapping)
-- [Architecture](/docs/caveman/explanation/architecture)
-- [Cache planner and trajectory rewriter](/docs/caveman/explanation/cache-and-rewriter)
-- [Context recovery](/docs/caveman/explanation/context-recovery)
-- [Compression Engine](/docs/caveman/explanation/engine)
-- [Product model](/docs/caveman/explanation/product-model)
-- [Local proxy and providers](/docs/caveman/explanation/proxy-and-providers)
-- [Security and privacy](/docs/caveman/explanation/security-and-privacy)
-- [Testing and benchmarks](/docs/caveman/explanation/testing-and-benchmarks)
-- [TOON and pixel context](/docs/caveman/explanation/toon-and-pixel)
+- [Caveman technical documentation](/docs/caveman/): This manual explains the public Caveman repository from installation through runtime behavior.
 
+### How To
+- [Install and update](/docs/caveman/how-to/install-and-update): Caveman ships a response-skill installer and a separate local-runtime CLI.
+- [Extending Caveman](/docs/caveman/how-to/extending): Extensions should preserve original input on uncertainty, keep recovery exact, and label measurements by evidence source.
+
+### Explanation
+- [Product model](/docs/caveman/explanation/product-model): Caveman has two local adoption paths.
+- [Architecture](/docs/caveman/explanation/architecture): Caveman's local runtime is a set of small processes joined by documented files, stdio, loopback HTTP, and Model Context Protocol (MCP).
+- [Agent wrapping](/docs/caveman/explanation/agent-wrapping): Agent wrapping starts an existing coding agent with local Caveman endpoints, hooks, skills, and recovery tools.
+- [Compression Engine](/docs/caveman/explanation/engine): Caveman Engine is a local Go library and command-line runtime for reducing model context.
+- [TOON and pixel context](/docs/caveman/explanation/toon-and-pixel): TOON and pixel are optional context encodings.
+- [Cache planner and trajectory rewriter](/docs/caveman/explanation/cache-and-rewriter): Caveman includes two independent optimization systems:
+- [Context recovery](/docs/caveman/explanation/context-recovery): Caveman Context Recovery, abbreviated CCR, stores exact original bytes behind a short reference.
+- [Local proxy and providers](/docs/caveman/explanation/proxy-and-providers): Local proxy presents provider-compatible HTTP routes on loopback, applies configured local transforms, forwards requests to provider endpoints, and...
+- [Security and privacy](/docs/caveman/explanation/security-and-privacy): Caveman local runtime processes prompts, tool output, source code, provider credentials, and browser state.
+- [Accounting and evidence](/docs/caveman/explanation/accounting-and-evidence): Caveman labels numbers by how they were produced.
+- [Testing and benchmarks](/docs/caveman/explanation/testing-and-benchmarks): Repository uses language-specific tests plus cross-package verification.
+
+### Reference
+- [CLI reference](/docs/caveman/reference/cli-reference): `caveman` and `cave` invoke the same command-line program.
+- [Configuration](/docs/caveman/reference/configuration): Caveman has two configuration layers:
+- [Local tools](/docs/caveman/reference/local-tools): Caveman ships local tools for recovery, memory, browser context, and large command output.
+- [Skills, hooks, and plugins](/docs/caveman/reference/skills-hooks-and-plugins): Caveman integrates through response skills, lifecycle hooks, and agent-specific plugins.
+- [Exploration and delegation](/docs/caveman/reference/exploration-and-delegation): Broad repository search can consume main agent context before editing begins.
+- [SDKs and public packages](/docs/caveman/reference/sdks-and-packages): Repository contains standalone packages for application integration, agent construction, schemas, evaluation, user-interface labels, provider price...
+- [Glossary](/docs/caveman/reference/glossary): Browser-provided semantic representation of page roles, names, states, and relationships.

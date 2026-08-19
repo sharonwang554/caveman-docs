@@ -5,7 +5,7 @@
 
 > **Note:** This is an unofficial community contribution by and is not officially affiliated with Caveman.
 
-A comprehensive documentation portal for Caveman built with Docusaurus. This repository contains the official documentation for Caveman, organized according to the Diátaxis framework.
+A comprehensive documentation portal for Caveman built with Docusaurus. This repository contains the documentation for Caveman, organized according to the Diátaxis framework.
 
 ## Features
 

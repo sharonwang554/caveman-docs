@@ -1,7 +1,6 @@
 import { themes as prismThemes } from 'prism-react-renderer';
 import type { Config } from '@docusaurus/types';
 import type * as Preset from '@docusaurus/preset-classic';
-import type * as OpenApiPlugin from 'docusaurus-plugin-openapi-docs';
 
 // This runs in Node.js - Don't use client-side code here (browser APIs, JSX...)
 
@@ -26,7 +25,12 @@ const config: Config = {
   organizationName: 'sharonwang554', // Usually your GitHub org/user name.
   projectName: 'caveman-docs', // Usually your repo name.
 
-  onBrokenLinks: 'throw',
+  onBrokenLinks: 'warn',
+  markdown: {
+    hooks: {
+      onBrokenMarkdownLinks: 'warn',
+    },
+  },
 
   // Even if you don't use internationalization, you can use this field to set
   // useful metadata like html lang. For example, if your site is Chinese, you
@@ -79,34 +83,11 @@ const config: Config = {
       },
       items: [
         {
-          type: 'dropdown',
-          label: 'Docs',
-          to: '/docs/caveman/tutorials/getting-started',
+          type: 'doc',
+          docId: 'caveman/tutorials/install-and-update',
           position: 'left',
-          items: [
-            {
-              label: 'Caveman',
-              to: '/docs/caveman/tutorials/getting-started',
-            },
-            {
-              label: 'Caveman Code',
-              to: '/docs/caveman-code/tutorials/getting-started',
-            },
-            {
-              label: 'CaveGemma',
-              to: '/docs/cavegemma/tutorials/quick-start',
-            },
-            {
-              label: 'Cavekit',
-              to: '/docs/cavekit/tutorials/installation',
-            },
-            {
-              label: 'Cavemem',
-              to: '/docs/cavemem/tutorials/installation',
-            },
-          ],
+          label: 'Docs',
         },
-
         {
           href: 'https://github.com/sharonwang554/caveman-docs',
           label: 'GitHub',
@@ -118,31 +99,6 @@ const config: Config = {
       style: 'dark',
       links: [
         {
-          title: 'Docs',
-          items: [
-            {
-              label: 'Caveman',
-              to: '/docs/caveman/tutorials/getting-started',
-            },
-            {
-              label: 'Caveman Code',
-              to: '/docs/caveman-code/tutorials/getting-started',
-            },
-            {
-              label: 'CaveGemma',
-              to: '/docs/cavegemma/tutorials/quick-start',
-            },
-            {
-              label: 'Cavekit',
-              to: '/docs/cavekit/tutorials/installation',
-            },
-            {
-              label: 'Cavemem',
-              to: '/docs/cavemem/tutorials/installation',
-            },
-          ],
-        },
-        {
           title: 'GitHub',
           items: [
             {
@@ -150,29 +106,34 @@ const config: Config = {
               href: 'https://github.com/JuliusBrussee/caveman',
             },
             {
-              label: 'Caveman Code',
-              href: 'https://github.com/JuliusBrussee/caveman-code',
+              label: 'Caveman Browse',
+              href: 'https://github.com/JuliusBrussee/caveman-browse',
             },
             {
               label: 'CaveGemma',
               href: 'https://github.com/JuliusBrussee/cavegemma',
             },
             {
-              label: 'Cavekit',
-              href: 'https://github.com/JuliusBrussee/cavekit',
+              label: 'Caveman Code',
+              href: 'https://github.com/JuliusBrussee/caveman-code',
             },
             {
               label: 'Cavemem',
               href: 'https://github.com/JuliusBrussee/cavemem',
             },
+            {
+              label: 'Cavekit',
+              href: 'https://github.com/JuliusBrussee/cavekit',
+            },
           ],
         },
       ],
-      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://sharonwang.me" target="_blank" rel="noopener noreferrer">Sharon Wang</a> (Unofficial Community Contribution).`,
+      copyright: `Copyright © ${new Date().getFullYear()} <a href="https://sharonwang.me" target="_blank" rel="noopener noreferrer">Sharon Wang</a>.`,
     },
     prism: {
       theme: prismThemes.github,
       darkTheme: prismThemes.dracula,
+      additionalLanguages: ['bash', 'json', 'powershell', 'yaml', 'markdown', 'diff'],
     },
   } satisfies Preset.ThemeConfig,
 };

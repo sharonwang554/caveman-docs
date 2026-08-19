@@ -3,14 +3,9 @@
 [![License: MIT](https://img.shields.io/badge/License-MIT-yellow.svg)](https://opensource.org/licenses/MIT)
 [![Built with Docusaurus](https://img.shields.io/badge/built%20with-Docusaurus-blue.svg)](https://docusaurus.io/)
 
-> **Note:** This is an unofficial community contribution by Sharon Wang and is not officially affiliated with Caveman.
+> **Note:** This is an unofficial community contribution by and is not officially affiliated with Caveman.
 
-A comprehensive documentation portal for the Caveman Ecosystem built with Docusaurus. This repository contains the unified docs for:
-- Caveman Skills
-- Caveman Code
-- Cavemem
-- Cavekit
-- Cavegemma
+A comprehensive documentation portal for Caveman built with Docusaurus. This repository contains the official documentation for Caveman, organized according to the Diátaxis framework.
 
 ## Features
 
